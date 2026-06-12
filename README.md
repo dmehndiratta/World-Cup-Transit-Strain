@@ -1,4 +1,4 @@
-# Full Capacity: How the 2026 World Cup Stress-Tests North American Transit
+# Park the Bus: How the 2026 World Cup Stress-Tests North American Transit
 
 **Author:** Dhruv Mehndiratta · [dhruv-mehndiratta.com](https://dhruv-mehndiratta.com)  
 **Tournament:** FIFA World Cup 2026 · Jun 11 – Jul 19, 2026  
