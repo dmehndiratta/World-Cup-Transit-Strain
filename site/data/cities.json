@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "updated": "2026-06-11",
+    "tournament_day": 1
+  },
+  "cities": [
+    {
+      "name": "New York / NJ",
+      "short": "NYC",
+      "lat": 40.8135,
+      "lon": -74.0744,
+      "stadium": "MetLife Stadium",
+      "system": "MTA + NJ Transit",
+      "stadium_capacity": 82500,
+      "transit_mode_share": 0.45,
+      "serving_lines": [
+        "NJT NEC",
+        "NJT Meadowlands Rail",
+        "NJT Bus 351"
+      ],
+      "key_station": "Penn Station / Secaucus Junction",
+      "color": "#e8431a",
+      "id": "nyc",
+      "strain_index": 9.5,
+      "num_matches": 9,
+      "strain_label": "Extreme",
+      "surge_summary": "NJ Transit special match trains from Penn Station and Secaucus Junction; MTA enhanced frequency on corridors near Penn Station; NJT bus service to MetLife",
+      "extra_trips_daily": 120,
+      "budget_usd": 8000000,
+      "free_with_ticket": false
+    },
+    {
+      "name": "Mexico City",
+      "short": "MEX",
+      "lat": 19.3029,
+      "lon": -99.1505,
+      "stadium": "Estadio Azteca",
+      "system": "CDMX Metro (STC)",
+      "stadium_capacity": 87523,
+      "transit_mode_share": 0.6,
+      "serving_lines": [
+        "Metro L\u00ednea 2",
+        "Metro L\u00ednea 3",
+        "Metrob\u00fas L\u00ednea 1"
+      ],
+      "key_station": "Estadio Azteca (L\u00ednea 2)",
+      "color": "#1a73e8",
+      "id": "cdmx",
+      "strain_index": 7.5,
+      "num_matches": 6,
+      "strain_label": "Very High",
+      "surge_summary": "Metro Line 2 enhanced frequency to Estadio Azteca station; extended operating hours on match nights; additional bus rapid transit on Insurgentes corridor",
+      "extra_trips_daily": 200,
+      "budget_usd": 5000000,
+      "free_with_ticket": false
+    },
+    {
+      "name": "Toronto",
+      "short": "TOR",
+      "lat": 43.6333,
+      "lon": -79.4189,
+      "stadium": "BMO Field",
+      "system": "TTC + GO Transit",
+      "stadium_capacity": 45736,
+      "transit_mode_share": 0.72,
+      "serving_lines": [
+        "TTC 509 Harbourfront",
+        "TTC 511 Bathurst",
+        "GO Lakeshore West"
+      ],
+      "key_station": "Exhibition Place / Union Station",
+      "color": "#e8a91a",
+      "id": "tor",
+      "strain_index": 6.9,
+      "num_matches": 5,
+      "strain_label": "High",
+      "surge_summary": "TTC enhanced service on all routes serving Exhibition/Strachan corridor; 3.8M projected boardings during WC; extra streetcar runs on 509/511 routes; GO Transit enhanced from Union Station",
+      "extra_trips_daily": 180,
+      "budget_usd": 12000000,
+      "free_with_ticket": false
+    },
+    {
+      "name": "Vancouver",
+      "short": "VAN",
+      "lat": 49.2768,
+      "lon": -123.1118,
+      "stadium": "BC Place",
+      "system": "TransLink (SkyTrain + Bus)",
+      "stadium_capacity": 54500,
+      "transit_mode_share": 0.8,
+      "serving_lines": [
+        "SkyTrain Expo Line",
+        "SkyTrain Millennium Line",
+        "Multiple Bus Routes"
+      ],
+      "key_station": "Stadium-Chinatown Station",
+      "color": "#3fb950",
+      "id": "van",
+      "strain_index": 8.3,
+      "num_matches": 5,
+      "strain_label": "Very High",
+      "surge_summary": "TransLink +600 bus trips/day; extra SkyTrain frequency on Expo/Millennium lines; free transit with match ticket; $21.6M dedicated WC budget",
+      "extra_trips_daily": 600,
+      "budget_usd": 21600000,
+      "free_with_ticket": true
+    },
+    {
+      "name": "Atlanta",
+      "short": "ATL",
+      "lat": 33.7555,
+      "lon": -84.4008,
+      "stadium": "Mercedes-Benz Stadium",
+      "system": "MARTA",
+      "stadium_capacity": 71000,
+      "transit_mode_share": 0.28,
+      "serving_lines": [
+        "MARTA Red Line",
+        "MARTA Gold Line"
+      ],
+      "key_station": "GWCC/CNN Center Station",
+      "color": "#f78166",
+      "id": "atl",
+      "strain_index": 7.2,
+      "num_matches": 5,
+      "strain_label": "High",
+      "surge_summary": "MARTA extended operating hours on match nights; additional trains on Red/Gold lines; shuttle buses from peripheral MARTA stations; park-and-ride lots at Brookhaven and Indian Creek",
+      "extra_trips_daily": 80,
+      "budget_usd": 3500000,
+      "free_with_ticket": false
+    },
+    {
+      "name": "Seattle",
+      "short": "SEA",
+      "lat": 47.5952,
+      "lon": -122.3316,
+      "stadium": "Lumen Field",
+      "system": "Sound Transit Link + KC Metro",
+      "stadium_capacity": 72000,
+      "transit_mode_share": 0.38,
+      "serving_lines": [
+        "Link Light Rail",
+        "KC Metro Routes 1/2/3/4/14/40"
+      ],
+      "key_station": "International District/Chinatown Station",
+      "color": "#79c0ff",
+      "id": "sea",
+      "strain_index": 7.8,
+      "num_matches": 5,
+      "strain_label": "Very High",
+      "surge_summary": "Sound Transit enhanced Link frequency; King County Metro extra buses on Routes 1/2/3/4/14/40; extended service hours; ferry service from Bainbridge/Bremerton enhanced",
+      "extra_trips_daily": 150,
+      "budget_usd": 6000000,
+      "free_with_ticket": false
+    }
+  ]
+}

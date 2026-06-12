@@ -1,0 +1,12 @@
+pandas>=2.2
+numpy>=1.26
+requests>=2.31
+pyarrow>=15.0
+statsmodels>=0.14
+linearmodels>=6.0
+scikit-learn>=1.4
+gtfs-kit>=6.0
+sodapy>=2.2
+tqdm>=4.66
+python-dateutil>=2.9
+pytz>=2024.1

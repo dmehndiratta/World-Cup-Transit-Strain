@@ -1,0 +1,112 @@
+name: Weekly Data Update
+
+# Runs every Sunday at 06:00 UTC during the tournament (Jun–Aug 2026)
+# Also runs on every push to main (to re-generate JSON after manual data edits)
+# Can be triggered manually from the Actions tab
+
+on:
+  schedule:
+    - cron: '0 6 * * 0'   # every Sunday 06:00 UTC
+  push:
+    branches: [main]
+    paths:
+      - 'data/manual/**'
+      - 'pipeline/**'
+      - 'run_pipeline.py'
+  workflow_dispatch:
+    inputs:
+      export_only:
+        description: 'Skip fetch/clean, only regenerate JSON'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write    # allow committing updated site/data/*.json back to repo
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run pipeline
+        run: |
+          if [ "${{ github.event.inputs.export_only }}" = "true" ]; then
+            python run_pipeline.py --export-only
+          else
+            python run_pipeline.py
+          fi
+        env:
+          # Optional Socrata app token for higher rate limits (add in repo Secrets)
+          SOCRATA_APP_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
+
+      - name: Check for changes to site/data
+        id: diff
+        run: |
+          git diff --quiet site/data/ || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push updated data
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add site/data/
+          git commit -m "data: weekly refresh $(date -u +%Y-%m-%d)"
+          git push
+
+      - name: No changes
+        if: steps.diff.outputs.changed != 'true'
+        run: echo "No data changes this run."
+
+# ── WEBSITE SYNC (OPTIONAL) ──
+# If the worldcup-transit and website repos are SEPARATE GitHub repos,
+# add this job to push updated JSON to the website repo automatically.
+# Requirements:
+#   1. Create a Personal Access Token (PAT) with repo write access
+#   2. Add it as repo secret: WEBSITE_REPO_TOKEN
+#   3. Set WEBSITE_REPO below to your GitHub username/website-repo
+#
+# Uncomment and configure:
+#
+#  sync-website:
+#    needs: update
+#    runs-on: ubuntu-latest
+#    if: needs.update.result == 'success'
+#    steps:
+#      - name: Checkout worldcup data
+#        uses: actions/checkout@v4
+#
+#      - name: Checkout website repo
+#        uses: actions/checkout@v4
+#        with:
+#          repository: YOUR_GITHUB_USERNAME/YOUR_WEBSITE_REPO
+#          token: ${{ secrets.WEBSITE_REPO_TOKEN }}
+#          path: website
+#
+#      - name: Copy updated JSON to website public folder
+#        run: |
+#          cp site/data/*.json website/public/worldcup-transit/data/
+#
+#      - name: Commit and push to website repo
+#        run: |
+#          cd website
+#          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+#          git config user.name "github-actions[bot]"
+#          git add public/worldcup-transit/data/
+#          git diff --staged --quiet || git commit -m "data: worldcup transit weekly refresh $(date -u +%Y-%m-%d)"
+#          git push
+#
+# ── LOCAL SYNC ──
+# To manually sync after running the pipeline locally:
+#   python sync_to_website.py

@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Capacity — 2026 World Cup Transit Strain Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --text:#e6edf3;--muted:#8b949e;--accent:#1a73e8;--gold:#e8a91a;
+  --green:#3fb950;--red:#f85149;--orange:#e8431a;
+  --r:8px;--shadow:0 4px 24px rgba(0,0,0,.4);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6}
+a{color:var(--accent);text-decoration:none}
+
+/* ── HEADER ── */
+.dash-header{background:linear-gradient(135deg,#0d1117 0%,#161b38 60%,#0d1117 100%);border-bottom:1px solid var(--border);padding:32px 24px 24px;text-align:center;position:relative;overflow:hidden}
+.dash-header::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a73e8' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.dash-header h1{font-size:clamp(1.8rem,5vw,3rem);font-weight:700;letter-spacing:-0.02em;background:linear-gradient(135deg,#e6edf3,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative}
+.dash-header .subtitle{color:var(--muted);font-size:clamp(.9rem,2vw,1.1rem);margin-top:6px;position:relative}
+.meta-bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px;position:relative}
+.badge{padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.badge-tournament{background:rgba(26,115,232,.15);border:1px solid rgba(26,115,232,.4);color:var(--accent)}
+.badge-live{background:rgba(63,185,80,.15);border:1px solid rgba(63,185,80,.4);color:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.badge-updated{background:rgba(139,148,158,.1);border:1px solid var(--border);color:var(--muted)}
+
+/* ── INSIGHT STRIP ── */
+.insight-strip{background:var(--surface);border-bottom:1px solid var(--border);padding:16px 0;overflow:hidden}
+.insight-track{display:flex;gap:0;animation:scroll-insights 40s linear infinite;width:max-content}
+.insight-track:hover{animation-play-state:paused}
+.insight-card{display:flex;align-items:center;gap:14px;padding:0 32px;border-right:1px solid var(--border);min-width:280px;flex-shrink:0}
+.insight-stat{font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1;white-space:nowrap}
+.insight-text{display:flex;flex-direction:column}
+.insight-label{font-size:.78rem;font-weight:600;color:var(--text);line-height:1.3}
+.insight-detail{font-size:.72rem;color:var(--muted);line-height:1.3}
+.insight-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+@keyframes scroll-insights{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── SECTION WRAPPER ── */
+.section{padding:40px 24px;max-width:1400px;margin:0 auto}
+.section-title{font-size:1.25rem;font-weight:600;margin-bottom:6px;color:var(--text)}
+.section-sub{font-size:.85rem;color:var(--muted);margin-bottom:24px}
+
+/* ── MAP ── */
+.map-wrap{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+@media(max-width:768px){.map-wrap{grid-template-columns:1fr}}
+#map{height:420px;border-radius:var(--r);border:1px solid var(--border);background:#1a2035}
+.map-legend{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;min-width:200px}
+.map-legend h4{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px}
+.legend-item{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:.82rem}
+.legend-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+.overview-stats{margin-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;text-align:center}
+.stat-card .val{font-size:1.6rem;font-weight:700;color:var(--accent);line-height:1}
+.stat-card .lbl{font-size:.73rem;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.06em}
+
+/* ── CITY TABS ── */
+.city-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.city-tab{padding:8px 18px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:.85rem;font-weight:500;font-family:inherit;transition:.2s}
+.city-tab:hover{border-color:var(--accent);color:var(--text)}
+.city-tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* ── CITY PANEL ── */
+.city-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px;min-height:400px}
+.city-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.city-name-block h2{font-size:1.4rem;font-weight:700}
+.city-name-block .system{font-size:.85rem;color:var(--muted);margin-top:2px}
+.strain-badge{display:flex;flex-direction:column;align-items:center;gap:4px}
+.strain-gauge{width:80px;height:80px;position:relative}
+.strain-label-text{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+
+.city-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:900px){.city-grid{grid-template-columns:1fr}}
+
+.match-calendar h3{font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px}
+.match-list{display:flex;flex-direction:column;gap:8px;max-height:320px;overflow-y:auto;padding-right:4px}
+.match-item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:10px 12px;background:var(--surface);border-radius:6px;border-left:3px solid var(--border)}
+.match-item.past{opacity:.6}
+.match-item.today{border-left-color:var(--green)}
+.match-item.knockout{border-left-color:var(--gold)}
+.match-date{font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.match-info .round{font-size:.78rem;font-weight:600;color:var(--text)}
+.match-info .time{font-size:.72rem;color:var(--muted)}
+.strain-pill{font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:10px;color:#fff;white-space:nowrap}
+
+.ridership-panel h3{font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px}
+#ridershipChart{width:100%;height:260px}
+
+/* ── FARE SECTION ── */
+.fare-section-inner{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px}
+.fare-toggle{display:flex;gap:8px;margin-bottom:20px}
+.toggle-btn{padding:6px 16px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:.82rem;font-weight:500;font-family:inherit;transition:.2s}
+.toggle-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+#fareChart{width:100%;height:320px}
+.fare-callout{margin-top:16px;background:rgba(232,169,26,.08);border:1px solid rgba(232,169,26,.3);border-radius:var(--r);padding:14px 18px;font-size:.85rem;line-height:1.6;color:var(--text)}
+.fare-callout strong{color:var(--gold)}
+
+/* ── WHAT-IF ── */
+.whatif-inner{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px}
+.whatif-grid{display:grid;grid-template-columns:280px 1fr;gap:32px;align-items:start}
+@media(max-width:768px){.whatif-grid{grid-template-columns:1fr}}
+.sliders h3{font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:16px}
+.slider-row{margin-bottom:20px}
+.slider-row label{display:flex;justify-content:space-between;font-size:.82rem;color:var(--text);margin-bottom:6px}
+.slider-row label span{color:var(--accent);font-weight:600}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:2px;background:var(--border);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);cursor:pointer;box-shadow:0 0 0 3px rgba(26,115,232,.2)}
+#whatifChart{width:100%;height:280px}
+.whatif-summary{margin-top:12px;font-size:.82rem;color:var(--muted);line-height:1.8}
+.whatif-summary strong{color:var(--text)}
+
+/* ── FOOTER ── */
+.dash-footer{background:var(--surface);border-top:1px solid var(--border);padding:24px;text-align:center;font-size:.78rem;color:var(--muted);line-height:1.8}
+.dash-footer a{color:var(--muted);text-decoration:underline}
+
+/* ── TOOLTIP ── */
+.d3-tooltip{position:absolute;pointer-events:none;background:var(--card);border:1px solid var(--border);border-radius:6px;padding:10px 14px;font-size:.8rem;box-shadow:var(--shadow);z-index:9999;white-space:nowrap}
+.d3-tooltip strong{display:block;margin-bottom:3px;color:var(--text)}
+.d3-tooltip span{color:var(--muted)}
+
+/* Leaflet dark tweaks */
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--card);color:var(--text);border:1px solid var(--border);box-shadow:var(--shadow)}
+.leaflet-popup-content{margin:12px 16px;font-size:.82rem;line-height:1.6}
+.leaflet-popup-content strong{color:var(--accent)}
+
+/* Scrollbar styling */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--surface)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="dash-header">
+  <h1>Full Capacity</h1>
+  <p class="subtitle">How the 2026 World Cup Stress-Tests North American Transit</p>
+  <div class="meta-bar">
+    <span class="badge badge-tournament">FIFA World Cup 2026</span>
+    <span class="badge badge-live" id="liveStatus">Live Tournament</span>
+    <span class="badge badge-updated" id="lastUpdated">Loading...</span>
+  </div>
+</header>
+
+<!-- ===== INSIGHT STRIP ===== -->
+<div class="insight-strip">
+  <div class="insight-track" id="insightTrack"></div>
+</div>
+
+<!-- ===== MAP SECTION ===== -->
+<div class="section">
+  <div class="section-title">Transit Strain by City</div>
+  <div class="section-sub">Strain Index = projected incremental riders ÷ scheduled corridor capacity · circle size = matches hosted · color = peak strain</div>
+  <div class="map-wrap">
+    <div>
+      <div id="map"></div>
+      <div class="overview-stats" id="overviewStats"></div>
+    </div>
+    <div class="map-legend">
+      <h4>Strain Index</h4>
+      <div class="legend-item"><div class="legend-dot" style="background:#f85149"></div> 9–10 Extreme</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#e8431a"></div> 7.5–9 Very High</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#e8a91a"></div> 6–7.5 High</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#3fb950"></div> 4–6 Moderate</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#8b949e"></div> &lt;4 Low</div>
+      <hr style="border-color:var(--border);margin:14px 0">
+      <h4 style="margin-bottom:10px">Data Status</h4>
+      <div style="font-size:.75rem;color:var(--muted);line-height:1.8">
+        <div>● MTA: ~4–6 wk lag</div>
+        <div>● CDMX: ~2 day lag</div>
+        <div>● NTD panel: monthly</div>
+        <div>● Match calendar: manual</div>
+        <div style="margin-top:8px;color:var(--accent)">Updated weekly via<br>GitHub Actions</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CITY DEEP-DIVE ===== -->
+<div class="section" style="padding-top:0">
+  <div class="section-title">City Analysis</div>
+  <div class="section-sub">Select a city to see match calendar, ridership trends, and corridor details</div>
+  <div class="city-tabs" id="cityTabs"></div>
+  <div class="city-panel" id="cityPanel">
+    <div style="color:var(--muted);text-align:center;padding:60px 0;font-size:.9rem">
+      Select a city above to load its analysis panel.
+    </div>
+  </div>
+</div>
+
+<!-- ===== FARE COMPARATOR ===== -->
+<div class="section">
+  <div class="section-title">The Cost of Getting There</div>
+  <div class="section-sub">Stadium round-trip fare per city — standard service and announced World Cup specials</div>
+  <div class="fare-section-inner">
+    <div class="fare-toggle">
+      <button class="toggle-btn active" data-fare-mode="absolute">$ Absolute (USD)</button>
+      <button class="toggle-btn" data-fare-mode="wage">% of Hourly Minimum Wage</button>
+    </div>
+    <div id="fareChart"></div>
+    <div class="fare-callout" id="fareCallout"></div>
+  </div>
+</div>
+
+<!-- ===== WHAT-IF ===== -->
+<div class="section">
+  <div class="section-title">What-If: Strain Calculator</div>
+  <div class="section-sub">Adjust assumptions to see how projected transit load compares to available capacity across cities</div>
+  <div class="whatif-inner">
+    <div class="whatif-grid">
+      <div class="sliders">
+        <h3>Parameters</h3>
+        <div class="slider-row">
+          <label>Stadium fill rate <span id="fillVal">95%</span></label>
+          <input type="range" id="fillSlider" min="50" max="100" value="95" step="5">
+        </div>
+        <div class="slider-row">
+          <label>Transit mode share <span id="modeVal">baseline</span></label>
+          <input type="range" id="modeSlider" min="50" max="150" value="100" step="5">
+          <div style="font-size:.72rem;color:var(--muted);margin-top:4px">100% = city baseline estimate</div>
+        </div>
+        <div class="slider-row">
+          <label>Service uplift <span id="upliftVal">0%</span></label>
+          <input type="range" id="upliftSlider" min="0" max="100" value="0" step="10">
+          <div style="font-size:.72rem;color:var(--muted);margin-top:4px">extra capacity above WC service plan</div>
+        </div>
+        <div class="whatif-summary" id="whatifSummary"></div>
+      </div>
+      <div>
+        <h3 style="font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px">Projected Load vs Capacity</h3>
+        <div id="whatifChart"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="dash-footer">
+  <div style="max-width:900px;margin:0 auto">
+    <strong style="color:var(--text)">Full Capacity: 2026 World Cup Transit Strain</strong><br>
+    By <a href="https://dhruv-mehndiratta.com">Dhruv Mehndiratta</a> · Tournament data refreshes weekly via GitHub Actions<br>
+    Sources: FTA NTD · MTA Subway Hourly · CDMX Metro Afluencia · Agency surge plans · FIFA schedule (verify at fifa.com)<br>
+    Match dates/teams are illustrative pending official FIFA schedule confirmation. Strain indices are model estimates.
+  </div>
+</footer>
+
+<div class="d3-tooltip" id="tooltip" style="display:none"></div>
+
+<script>
+// ── DATA PATHS ──
+const DATA = {
+  cities:   './data/cities.json',
+  matches:  './data/matches.json',
+  fares:    './data/fares.json',
+  ridership:'./data/ridership.json',
+  insights: './data/insights.json',
+  strain:   './data/strain.json',
+};
+
+// ── STATE ──
+let state = {
+  cities: [], matches: [], fares: [], ridership: {}, insights: [], strain: [],
+  activeCity: null,
+  fareMode: 'absolute',
+  map: null,
+  markers: {},
+};
+
+// ── UTILITY ──
+const $ = id => document.getElementById(id);
+const fmt = (n, dec=1) => n == null ? 'N/A' : Number(n).toLocaleString('en-US', {maximumFractionDigits: dec});
+const today = new Date().toISOString().slice(0, 10);
+
+function strainColor(v) {
+  if (v >= 9)   return '#f85149';
+  if (v >= 7.5) return '#e8431a';
+  if (v >= 6)   return '#e8a91a';
+  if (v >= 4)   return '#3fb950';
+  return '#8b949e';
+}
+
+function strainLabel(v) {
+  if (v >= 9)   return 'Extreme';
+  if (v >= 7.5) return 'Very High';
+  if (v >= 6)   return 'High';
+  if (v >= 4)   return 'Moderate';
+  return 'Low';
+}
+
+// ── LOAD ALL DATA ──
+async function loadAll() {
+  const [cities, matches, fares, ridership, insights] = await Promise.all([
+    fetch(DATA.cities).then(r=>r.json()).catch(()=>({cities:[]})),
+    fetch(DATA.matches).then(r=>r.json()).catch(()=>({matches:[]})),
+    fetch(DATA.fares).then(r=>r.json()).catch(()=>({cities:[]})),
+    fetch(DATA.ridership).then(r=>r.json()).catch(()=>({cities:{}})),
+    fetch(DATA.insights).then(r=>r.json()).catch(()=>({insights:[]})),
+  ]);
+  state.cities   = cities.cities || [];
+  state.matches  = matches.matches || [];
+  state.fares    = fares.cities || [];
+  state.ridership= ridership.cities || {};
+  state.insights = insights.insights || [];
+
+  const updated = cities.meta?.updated || today;
+  $('lastUpdated').textContent = 'Data: ' + updated;
+  $('liveStatus').textContent = 'Day ' + (cities.meta?.tournament_day ?? 1);
+
+  init();
+}
+
+// ── INIT ──
+function init() {
+  renderInsights();
+  initMap();
+  renderOverviewStats();
+  renderCityTabs();
+  renderFareChart();
+  initWhatIf();
+
+  // Auto-select first city
+  if (state.cities.length) selectCity(state.cities[0].id);
+}
+
+// ── INSIGHT STRIP ──
+function renderInsights() {
+  const track = $('insightTrack');
+  const items = [...state.insights, ...state.insights]; // duplicate for seamless scroll
+  track.innerHTML = items.map(i => `
+    <div class="insight-card">
+      <div class="insight-dot" style="background:${cityColor(i.city)}"></div>
+      <div class="insight-text">
+        <div class="insight-stat">${i.stat}</div>
+        <div class="insight-label">${i.label}</div>
+        <div class="insight-detail">${i.detail}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function cityColor(id) {
+  return state.cities.find(c => c.id === id)?.color || '#8b949e';
+}
+
+// ── MAP ──
+function initMap() {
+  const map = L.map('map', {
+    center: [42, -98],
+    zoom: 3,
+    zoomControl: true,
+    attributionControl: false,
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap © CartoDB',
+    subdomains: 'abcd',
+    maxZoom: 19,
+  }).addTo(map);
+
+  L.control.attribution({prefix: false}).addAttribution('© <a href="https://openstreetmap.org">OSM</a> © <a href="https://carto.com">CartoDB</a>').addTo(map);
+
+  state.cities.forEach(city => {
+    const si = city.strain_index || 5;
+    const r = 12 + (si / 10) * 22;
+    const color = strainColor(si);
+
+    const marker = L.circleMarker([city.lat, city.lon], {
+      radius: r,
+      fillColor: color,
+      color: '#fff',
+      weight: 2,
+      opacity: 0.9,
+      fillOpacity: 0.75,
+    }).addTo(map);
+
+    marker.bindPopup(`
+      <strong>${city.name}</strong><br>
+      <b style="color:${color}">Strain: ${si}/10 — ${strainLabel(si)}</b><br>
+      ${city.stadium}<br>
+      ${city.system}<br>
+      ${city.num_matches} match${city.num_matches !== 1 ? 'es' : ''}
+    `);
+
+    marker.on('click', () => {
+      selectCity(city.id);
+      // scroll to city section
+      document.querySelector('.city-tabs').scrollIntoView({behavior:'smooth',block:'start'});
+    });
+
+    state.markers[city.id] = marker;
+  });
+
+  state.map = map;
+}
+
+// ── OVERVIEW STATS ──
+function renderOverviewStats() {
+  const totalMatches = state.matches.length;
+  const maxStrain = Math.max(...state.cities.map(c => c.strain_index || 0));
+  const maxCity = state.cities.find(c => c.strain_index === maxStrain);
+  const finalMatch = state.matches.find(m => m.phase === 'knockout' && m.round === 'Final');
+
+  $('overviewStats').innerHTML = `
+    <div class="stat-card"><div class="val">${totalMatches}</div><div class="lbl">Matches tracked</div></div>
+    <div class="stat-card"><div class="val">6</div><div class="lbl">Host cities</div></div>
+    <div class="stat-card"><div class="val" style="color:${strainColor(maxStrain)}">${maxStrain}</div><div class="lbl">Peak strain index</div></div>
+    <div class="stat-card"><div class="val" style="font-size:1rem">${finalMatch ? finalMatch.city : 'NYC'}</div><div class="lbl">Final city (Jul 19)</div></div>
+    <div class="stat-card"><div class="val">Jun 11</div><div class="lbl">Tournament opened</div></div>
+    <div class="stat-card"><div class="val">Jul 19</div><div class="lbl">Final</div></div>
+  `;
+}
+
+// ── CITY TABS ──
+function renderCityTabs() {
+  $('cityTabs').innerHTML = state.cities.map(c => `
+    <button class="city-tab" data-id="${c.id}" onclick="selectCity('${c.id}')">
+      ${c.short}
+    </button>
+  `).join('');
+}
+
+function selectCity(id) {
+  state.activeCity = id;
+
+  // Update tabs
+  document.querySelectorAll('.city-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.id === id);
+  });
+
+  const city = state.cities.find(c => c.id === id);
+  if (!city) return;
+
+  // Highlight map marker
+  Object.entries(state.markers).forEach(([cid, m]) => {
+    m.setStyle({weight: cid === id ? 3 : 2, color: cid === id ? '#fff' : '#fff', fillOpacity: cid === id ? 0.95 : 0.75});
+  });
+
+  renderCityPanel(city);
+}
+
+function renderCityPanel(city) {
+  const matches = state.matches.filter(m => m.city_id === city.id)
+    .sort((a, b) => a.date < b.date ? -1 : 1);
+
+  const si = city.strain_index || 5;
+  const color = strainColor(si);
+
+  $('cityPanel').innerHTML = `
+    <div class="city-header">
+      <div class="city-name-block">
+        <h2>${city.name}</h2>
+        <div class="system">${city.system} &nbsp;·&nbsp; ${city.stadium}</div>
+        <div style="font-size:.78rem;color:var(--muted);margin-top:4px">${city.num_matches} matches &nbsp;·&nbsp; ${(city.transit_mode_share*100).toFixed(0)}% transit mode share</div>
+      </div>
+      <div class="strain-badge">
+        <svg class="strain-gauge" viewBox="0 0 80 80" id="strainGaugeSvg"></svg>
+        <div class="strain-label-text">${strainLabel(si)} Strain</div>
+      </div>
+    </div>
+    <div style="font-size:.82rem;color:var(--muted);margin-bottom:16px;padding:10px 14px;background:var(--surface);border-radius:6px;line-height:1.7">
+      <strong style="color:var(--text)">Service plan:</strong> ${city.surge_summary || 'Details pending'}
+      ${city.free_with_ticket ? '<span style="background:rgba(63,185,80,.15);border:1px solid rgba(63,185,80,.3);color:var(--green);padding:2px 8px;border-radius:10px;font-size:.72rem;font-weight:600;margin-left:8px">FREE with match ticket</span>' : ''}
+    </div>
+    <div class="city-grid">
+      <div class="match-calendar">
+        <h3>Match Calendar</h3>
+        <div class="match-list">
+          ${matches.map(m => {
+            const isToday = m.date === today;
+            const isPast = m.date < today;
+            const isKnockout = m.phase === 'knockout';
+            const sc = strainColor(m.strain_rating);
+            return `
+            <div class="match-item ${isPast?'past':''} ${isToday?'today':''} ${isKnockout?'knockout':''}">
+              <div class="match-date">
+                ${new Date(m.date+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'})}
+              </div>
+              <div class="match-info">
+                <div class="round">${m.round} ${isToday?'<span style="color:var(--green);font-size:.72rem">● TODAY</span>':''}</div>
+                <div class="time">${m.kickoff_local} local · ${m.stadium}</div>
+              </div>
+              <span class="strain-pill" style="background:${sc}">${m.strain_rating}/10</span>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>
+      <div class="ridership-panel">
+        <h3>Ridership: Actual vs Baseline</h3>
+        <svg id="ridershipChart"></svg>
+        <div style="font-size:.72rem;color:var(--muted);margin-top:8px">
+          <span style="color:var(--accent)">&#9472;&#9472;</span> Actual/Projected
+          &nbsp;
+          <span style="border-bottom:1px dashed var(--muted)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Pre-WC Baseline
+          &nbsp;
+          <span style="background:rgba(232,169,26,.15);padding:0 4px">WC window</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:10px">
+      ${city.serving_lines ? city.serving_lines.map(l => `<span style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:4px 10px;font-size:.75rem;color:var(--muted)">${l}</span>`).join('') : ''}
+    </div>
+  `;
+
+  drawStrainGauge('strainGaugeSvg', si, color);
+  drawRidershipChart(city.id);
+}
+
+// ── STRAIN GAUGE ──
+function drawStrainGauge(svgId, value, color) {
+  const svg = document.getElementById(svgId);
+  if (!svg) return;
+  const pct = value / 10;
+  const cx = 40, cy = 42, r = 28;
+  const start = -220, sweep = 260; // degrees
+  const startRad = (start * Math.PI) / 180;
+  const endRad = ((start + sweep * pct) * Math.PI) / 180;
+  const endFullRad = ((start + sweep) * Math.PI) / 180;
+
+  function arc(angle) {
+    return [cx + r * Math.cos(angle), cy + r * Math.sin(angle)];
+  }
+
+  const [sx, sy] = arc(startRad);
+  const [ex, ey] = arc(endRad);
+  const [efx, efy] = arc(endFullRad);
+  const largeArc = sweep * pct > 180 ? 1 : 0;
+  const largeArcFull = sweep > 180 ? 1 : 0;
+
+  svg.innerHTML = `
+    <path d="M${sx},${sy} A${r},${r} 0 ${largeArcFull},1 ${efx},${efy}"
+      fill="none" stroke="var(--border)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M${sx},${sy} A${r},${r} 0 ${largeArc},1 ${ex},${ey}"
+      fill="none" stroke="${color}" stroke-width="7" stroke-linecap="round"/>
+    <text x="${cx}" y="${cy+5}" text-anchor="middle" fill="${color}" font-size="16" font-weight="700" font-family="Inter,sans-serif">${value}</text>
+    <text x="${cx}" y="${cy+18}" text-anchor="middle" fill="var(--muted)" font-size="8" font-family="Inter,sans-serif">/10</text>
+  `;
+}
+
+// ── RIDERSHIP CHART ──
+function drawRidershipChart(cityId) {
+  const series = state.ridership[cityId];
+  const svg = d3.select('#ridershipChart');
+  svg.selectAll('*').remove();
+
+  const container = document.getElementById('ridershipChart');
+  if (!container) return;
+  const W = container.clientWidth || 400;
+  const H = 260;
+  const margin = {top: 12, right: 16, bottom: 32, left: 52};
+  const w = W - margin.left - margin.right;
+  const h = H - margin.top - margin.bottom;
+
+  svg.attr('viewBox', `0 0 ${W} ${H}`).attr('width', W).attr('height', H);
+  const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+
+  if (!series || !series.length) {
+    g.append('text').attr('x', w/2).attr('y', h/2)
+      .attr('text-anchor', 'middle').attr('fill', '#8b949e').attr('font-size', '13')
+      .text('Ridership data loading…');
+    return;
+  }
+
+  const parseDate = d => new Date(d.week + 'T12:00:00');
+  const x = d3.scaleTime().domain(d3.extent(series, parseDate)).range([0, w]);
+  const allVals = series.flatMap(d => [d.actual, d.baseline, d.projected]).filter(v => v != null);
+  const y = d3.scaleLinear().domain([d3.min(allVals)*0.88, d3.max(allVals)*1.06]).range([h, 0]).nice();
+
+  // WC window shade
+  const wcStart = new Date('2026-06-08T12:00:00');
+  const wcEnd   = new Date('2026-07-21T12:00:00');
+  g.append('rect')
+    .attr('x', x(wcStart)).attr('y', 0)
+    .attr('width', x(wcEnd) - x(wcStart)).attr('height', h)
+    .attr('fill', 'rgba(232,169,26,.07)');
+
+  // Today line
+  const todayD = new Date(today + 'T12:00:00');
+  g.append('line')
+    .attr('x1', x(todayD)).attr('x2', x(todayD)).attr('y1', 0).attr('y2', h)
+    .attr('stroke', '#3fb950').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3').attr('opacity', .7);
+
+  // Axes
+  g.append('g').attr('transform', `translate(0,${h})`).call(
+    d3.axisBottom(x).ticks(5).tickFormat(d3.timeFormat('%b %d'))
+      .tickSize(0).tickPadding(8)
+  ).select('.domain').remove();
+  g.selectAll('.tick text').attr('fill', '#8b949e').attr('font-size', '11');
+
+  g.append('g').call(
+    d3.axisLeft(y).ticks(5).tickFormat(d => d >= 1e6 ? (d/1e6).toFixed(1)+'M' : (d/1e3).toFixed(0)+'K')
+      .tickSize(-w).tickPadding(8)
+  ).select('.domain').remove();
+  g.selectAll('.tick line').attr('stroke', '#30363d').attr('stroke-dasharray', '2,2');
+  g.selectAll('.tick text').attr('fill', '#8b949e').attr('font-size', '11');
+
+  // Baseline dashed line
+  const baselineData = series.filter(d => d.baseline != null);
+  g.append('path')
+    .datum(baselineData)
+    .attr('fill', 'none')
+    .attr('stroke', '#8b949e')
+    .attr('stroke-width', 1.5)
+    .attr('stroke-dasharray', '5,4')
+    .attr('d', d3.line().x(d => x(parseDate(d))).y(d => y(d.baseline)).curve(d3.curveMonotoneX));
+
+  // Actual line (blue)
+  const actualData = series.filter(d => d.actual != null);
+  if (actualData.length) {
+    g.append('path')
+      .datum(actualData)
+      .attr('fill', 'none').attr('stroke', '#1a73e8').attr('stroke-width', 2.5)
+      .attr('d', d3.line().x(d => x(parseDate(d))).y(d => y(d.actual)).curve(d3.curveMonotoneX));
+    g.selectAll('.dot-actual').data(actualData).enter().append('circle')
+      .attr('cx', d => x(parseDate(d))).attr('cy', d => y(d.actual))
+      .attr('r', 3.5).attr('fill', '#1a73e8');
+  }
+
+  // Projected line (dashed gold, WC window)
+  const projData = series.filter(d => d.projected != null && d.is_wc_week);
+  if (projData.length) {
+    // Connect last actual to first projected
+    const bridge = [];
+    if (actualData.length) bridge.push(actualData[actualData.length - 1]);
+    bridge.push(...projData);
+    g.append('path')
+      .datum(bridge)
+      .attr('fill', 'none').attr('stroke', '#e8a91a').attr('stroke-width', 2)
+      .attr('stroke-dasharray', '6,3')
+      .attr('d', d3.line()
+        .x(d => x(parseDate(d)))
+        .y(d => y(d.projected || d.actual || d.baseline))
+        .curve(d3.curveMonotoneX));
+  }
+
+  // Tooltip
+  const tooltip = $('tooltip');
+  g.append('rect')
+    .attr('width', w).attr('height', h).attr('fill', 'none').attr('pointer-events', 'all')
+    .on('mousemove', function(event) {
+      const [mx] = d3.pointer(event);
+      const x0 = x.invert(mx);
+      const bisect = d3.bisector(parseDate).left;
+      const idx = bisect(series, x0, 1);
+      const d = series[idx - 1] || series[0];
+      tooltip.style.display = 'block';
+      tooltip.style.left = (event.pageX + 14) + 'px';
+      tooltip.style.top  = (event.pageY - 28) + 'px';
+      const val = d.actual ?? d.projected ?? d.baseline;
+      tooltip.innerHTML = `<strong>${new Date(d.week+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'})}</strong>
+        <span>${d.actual != null ? 'Actual' : d.projected != null ? 'Projected' : 'Baseline'}: ${(val/1e6).toFixed(2)}M</span>
+        ${d.is_wc_week ? '<br><span style="color:var(--gold)">World Cup week</span>' : ''}`;
+    })
+    .on('mouseleave', () => { tooltip.style.display = 'none'; });
+}
+
+// ── FARE CHART ──
+function renderFareChart(mode) {
+  if (!mode) mode = state.fareMode;
+  state.fareMode = mode;
+
+  document.querySelectorAll('.toggle-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.fareMode === mode);
+  });
+
+  const container = document.getElementById('fareChart');
+  container.innerHTML = '';
+  const W = container.clientWidth || 700;
+  const H = 320;
+  const margin = {top: 16, right: 120, bottom: 40, left: 150};
+  const w = W - margin.left - margin.right;
+  const h = H - margin.top - margin.bottom;
+
+  const svg = d3.select('#fareChart').append('svg')
+    .attr('viewBox', `0 0 ${W} ${H}`).attr('width', W).attr('height', H);
+  const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+
+  const data = state.fares.map(f => ({
+    id: f.city_id,
+    name: f.city,
+    standard: mode === 'absolute' ? +f.stadium_rt_usd : +f.stadium_rt_pct_min_wage,
+    special: mode === 'absolute' ? +f.special_wc_fare_usd : (+f.special_wc_fare_usd / +f.min_wage_usd_hr * 100),
+    free: f.free_with_ticket === 'true' || f.free_with_ticket === true,
+    color: state.cities.find(c => c.id === f.city_id)?.color || '#8b949e',
+  })).sort((a, b) => b.standard - a.standard);
+
+  const xMax = d3.max(data, d => Math.max(d.standard, d.special || 0)) * 1.15;
+  const x = d3.scaleLinear().domain([0, xMax]).range([0, w]);
+  const y = d3.scaleBand().domain(data.map(d => d.id)).range([0, h]).padding(0.25);
+
+  // Axes
+  g.append('g').attr('transform', `translate(0,${h})`).call(
+    d3.axisBottom(x).ticks(5)
+      .tickFormat(d => mode === 'absolute' ? '$' + d.toFixed(0) : d.toFixed(0) + '%')
+      .tickSize(-h).tickPadding(8)
+  ).select('.domain').remove();
+  g.selectAll('.tick line').attr('stroke', '#30363d').attr('stroke-dasharray', '2,2');
+  g.selectAll('.tick text').attr('fill', '#8b949e').attr('font-size', '11');
+
+  g.append('g').call(d3.axisLeft(y).tickSize(0).tickPadding(10)
+    .tickFormat(id => data.find(d => d.id === id)?.name || id)
+  ).select('.domain').remove();
+  g.selectAll('.tick text').attr('fill', '#e6edf3').attr('font-size', '12').attr('font-weight', '500');
+
+  const tooltip = $('tooltip');
+
+  // Standard bars
+  g.selectAll('.bar-standard').data(data).enter().append('rect')
+    .attr('class', 'bar-standard')
+    .attr('x', 0).attr('y', d => y(d.id))
+    .attr('height', y.bandwidth() * 0.55)
+    .attr('width', d => d.free ? x(0.5) : x(d.standard))
+    .attr('fill', d => d.color).attr('opacity', 0.85).attr('rx', 3)
+    .on('mouseover', function(event, d) {
+      tooltip.style.display = 'block';
+      tooltip.style.left = (event.pageX + 14) + 'px';
+      tooltip.style.top = (event.pageY - 28) + 'px';
+      const val = mode === 'absolute' ? '$' + d.standard.toFixed(2) : d.standard.toFixed(0) + '% of min wage';
+      tooltip.innerHTML = `<strong>${d.name}</strong><span>Standard: ${d.free ? 'Free with ticket' : val}</span>`;
+    })
+    .on('mouseleave', () => { tooltip.style.display = 'none'; });
+
+  // Special/WC bars (if any)
+  data.filter(d => d.special > 0 && !d.free).forEach(d => {
+    g.append('rect')
+      .attr('x', 0).attr('y', y(d.id) + y.bandwidth() * 0.58)
+      .attr('height', y.bandwidth() * 0.38)
+      .attr('width', x(d.special)).attr('fill', '#e8a91a').attr('opacity', 0.7).attr('rx', 3);
+    g.append('text')
+      .attr('x', x(d.special) + 6).attr('y', y(d.id) + y.bandwidth() * 0.83)
+      .attr('fill', '#e8a91a').attr('font-size', '10').text('WC special');
+  });
+
+  // Value labels
+  data.forEach(d => {
+    const label = d.free ? 'Free w/ ticket' :
+      (mode === 'absolute' ? '$' + d.standard.toFixed(2) : d.standard.toFixed(0) + '%');
+    g.append('text')
+      .attr('x', d.free ? 6 : x(d.standard) + 6)
+      .attr('y', y(d.id) + y.bandwidth() * 0.38)
+      .attr('fill', d.free ? '#3fb950' : '#e6edf3')
+      .attr('font-size', '12').attr('font-weight', '600').attr('dominant-baseline', 'middle')
+      .text(label);
+  });
+
+  // Fare callout
+  const nj = state.fares.find(f => f.city_id === 'nyc');
+  if (nj) {
+    $('fareCallout').innerHTML = mode === 'absolute'
+      ? `<strong>NJ Transit World Cup special:</strong> The "Secaucus VIP package" was reported at ~$150 (vs $${nj.stadium_rt_usd} standard roundtrip) — equivalent to ${(nj.special_wc_fare_usd / nj.min_wage_usd_hr).toFixed(1)} hours at NYC minimum wage. <a href="https://www.njtransit.com" target="_blank">Verify current pricing at NJT</a> before publishing.`
+      : `<strong>Equity lens:</strong> Vancouver's free-transit-with-ticket policy makes the stadium round-trip cost <strong style="color:var(--green)">0%</strong> of minimum wage. Atlanta's $5.00 MARTA roundtrip equals <strong style="color:var(--red)">69%</strong> of Georgia's $7.25 minimum hourly wage. The spread reflects both fare policy choices and local wage floors.`;
+  }
+}
+
+// ── WHAT-IF ──
+let cityBaselineParams = {};
+
+function initWhatIf() {
+  // Pre-compute baseline incremental riders + capacity per city
+  state.cities.forEach(c => {
+    const corr = CORRIDOR_PARAMS[c.id];
+    if (!corr) return;
+    cityBaselineParams[c.id] = {
+      transit_mode_share: c.transit_mode_share,
+      stadium_capacity: c.stadium_capacity,
+      ...corr,
+      color: c.color,
+      name: c.short,
+    };
+  });
+
+  $('fillSlider').addEventListener('input', updateWhatIf);
+  $('modeSlider').addEventListener('input', updateWhatIf);
+  $('upliftSlider').addEventListener('input', updateWhatIf);
+  updateWhatIf();
+}
+
+const CORRIDOR_PARAMS = {
+  nyc:  {normal_vph: 2,  wc_vph: 8,  cap_per_veh: 1200, lines: 3, peak_h: 3},
+  cdmx: {normal_vph: 30, wc_vph: 40, cap_per_veh: 1200, lines: 2, peak_h: 3},
+  tor:  {normal_vph: 6,  wc_vph: 12, cap_per_veh: 200,  lines: 3, peak_h: 3},
+  van:  {normal_vph: 10, wc_vph: 20, cap_per_veh: 600,  lines: 2, peak_h: 3},
+  atl:  {normal_vph: 3,  wc_vph: 6,  cap_per_veh: 500,  lines: 1, peak_h: 3},
+  sea:  {normal_vph: 5,  wc_vph: 10, cap_per_veh: 400,  lines: 2, peak_h: 3},
+};
+
+function updateWhatIf() {
+  const fill = +$('fillSlider').value / 100;
+  const modeMultiplier = +$('modeSlider').value / 100;
+  const uplift = +$('upliftSlider').value / 100;
+
+  $('fillVal').textContent = Math.round(fill * 100) + '%';
+  $('modeVal').textContent = Math.round(modeMultiplier * 100) + '%';
+  $('upliftVal').textContent = '+' + Math.round(uplift * 100) + '%';
+
+  const results = [];
+  state.cities.forEach(c => {
+    const p = cityBaselineParams[c.id];
+    if (!p) return;
+    const effectiveModeShare = p.transit_mode_share * modeMultiplier;
+    const incremental = c.stadium_capacity * fill * effectiveModeShare;
+    const adjustedVph = p.wc_vph * (1 + uplift);
+    const cap = p.lines * adjustedVph * p.cap_per_veh * p.peak_h;
+    const loadPct = Math.min((incremental / cap) * 100, 200);
+    results.push({id: c.id, name: c.short, incremental: Math.round(incremental), cap: Math.round(cap), loadPct, color: c.color});
+  });
+
+  drawWhatIfChart(results);
+
+  const max = results.reduce((a, b) => a.loadPct > b.loadPct ? a : b, results[0]);
+  const min = results.reduce((a, b) => a.loadPct < b.loadPct ? a : b, results[0]);
+  $('whatifSummary').innerHTML = results.map(r =>
+    `<strong style="color:${r.color}">${r.name}</strong>: ${fmt(r.incremental, 0)} riders on ${fmt(r.cap, 0)} capacity (${r.loadPct.toFixed(0)}% load)`
+  ).join('<br>');
+}
+
+function drawWhatIfChart(results) {
+  const container = document.getElementById('whatifChart');
+  container.innerHTML = '';
+  const W = container.clientWidth || 500;
+  const H = 280;
+  const margin = {top: 12, right: 60, bottom: 32, left: 56};
+  const w = W - margin.left - margin.right;
+  const h = H - margin.top - margin.bottom;
+
+  const svg = d3.select('#whatifChart').append('svg')
+    .attr('viewBox', `0 0 ${W} ${H}`).attr('width', W).attr('height', H);
+  const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+
+  const x = d3.scaleBand().domain(results.map(d => d.id)).range([0, w]).padding(0.25);
+  const yMax = Math.max(100, d3.max(results, d => d.loadPct)) * 1.1;
+  const y = d3.scaleLinear().domain([0, yMax]).range([h, 0]).nice();
+
+  // 100% line
+  g.append('line')
+    .attr('x1', 0).attr('x2', w).attr('y1', y(100)).attr('y2', y(100))
+    .attr('stroke', '#f85149').attr('stroke-dasharray', '5,3').attr('stroke-width', 1.5);
+  g.append('text').attr('x', w + 4).attr('y', y(100) + 4)
+    .attr('fill', '#f85149').attr('font-size', '10').text('100%');
+
+  g.append('g').attr('transform', `translate(0,${h})`).call(
+    d3.axisBottom(x).tickFormat(id => results.find(d => d.id === id)?.name || id).tickSize(0).tickPadding(8)
+  ).select('.domain').remove();
+  g.selectAll('.tick text').attr('fill', '#e6edf3').attr('font-size', '12').attr('font-weight', '600');
+
+  g.append('g').call(
+    d3.axisLeft(y).ticks(5).tickFormat(d => d + '%').tickSize(-w).tickPadding(8)
+  ).select('.domain').remove();
+  g.selectAll('.tick line').attr('stroke', '#30363d').attr('stroke-dasharray', '2,2');
+  g.selectAll('.tick text').attr('fill', '#8b949e').attr('font-size', '11');
+
+  const tooltip = $('tooltip');
+  results.forEach(d => {
+    const barColor = d.loadPct >= 100 ? '#f85149' : d.loadPct >= 75 ? '#e8431a' : d.color;
+    g.append('rect')
+      .attr('x', x(d.id)).attr('y', y(d.loadPct)).attr('rx', 4)
+      .attr('width', x.bandwidth()).attr('height', h - y(d.loadPct))
+      .attr('fill', barColor).attr('opacity', 0.85)
+      .on('mouseover', function(event) {
+        tooltip.style.display = 'block';
+        tooltip.style.left = (event.pageX + 14) + 'px';
+        tooltip.style.top = (event.pageY - 28) + 'px';
+        tooltip.innerHTML = `<strong>${d.name}</strong><span>${d.loadPct.toFixed(0)}% corridor load<br>${fmt(d.incremental,0)} riders on ${fmt(d.cap,0)} cap</span>`;
+      })
+      .on('mouseleave', () => { tooltip.style.display = 'none'; });
+
+    g.append('text')
+      .attr('x', x(d.id) + x.bandwidth() / 2).attr('y', y(d.loadPct) - 5)
+      .attr('text-anchor', 'middle').attr('fill', '#e6edf3').attr('font-size', '11').attr('font-weight', '600')
+      .text(d.loadPct.toFixed(0) + '%');
+  });
+}
+
+// ── FARE TOGGLE WIRING ──
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => renderFareChart(btn.dataset.fareMode));
+});
+
+// ── LOAD & GO ──
+loadAll().catch(err => {
+  console.error('Dashboard data load error:', err);
+  document.body.insertAdjacentHTML('afterbegin',
+    `<div style="background:#f8514933;color:#f85149;padding:12px 20px;text-align:center;font-size:.85rem">
+      Could not load data files. Open via a web server (python -m http.server) rather than file://.
+      Error: ${err.message}
+    </div>`
+  );
+});
+</script>
+</body>
+</html>

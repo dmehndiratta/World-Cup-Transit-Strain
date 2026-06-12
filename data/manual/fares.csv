@@ -1,0 +1,7 @@
+city_id,city,system,base_fare_usd,day_pass_usd,airport_downtown_usd,stadium_rt_usd,stadium_rt_note,special_wc_fare_usd,special_wc_note,free_with_ticket,min_wage_usd_hr,stadium_rt_pct_min_wage,source_url,verified_date
+nyc,New York / NJ,MTA + NJ Transit,2.90,0,10.75,25.00,NJT roundtrip Penn Station to Meadowlands (standard service),150.00,NJT Secaucus VIP package (special match train + shuttle – verify current pricing),false,17.00,147,https://www.njtransit.com,2026-06-01
+cdmx,Mexico City,CDMX Metro (STC),0.28,0,2.20,0.55,Metro Line 2 roundtrip to Estadio Azteca station,0,N/A,false,1.43,38,https://metro.cdmx.gob.mx,2026-06-01
+tor,Toronto,TTC + GO Transit,2.42,9.86,9.20,4.84,TTC subway + streetcar roundtrip to BMO Field,0,N/A,false,12.57,38,https://www.ttc.ca,2026-06-01
+van,Vancouver,TransLink (SkyTrain + Bus),2.30,8.22,7.48,0.00,Free transit with match ticket (TransLink 2026 WC policy),0,Transit included with FIFA match ticket,true,12.70,0,https://www.translink.ca/rider-guide/taking-transit-to-the-world-cup,2026-06-01
+atl,Atlanta,MARTA,2.50,9.00,2.50,5.00,MARTA roundtrip to GWCC/CNN Center (Vine City station),0,N/A,false,7.25,69,https://www.itsmarta.com,2026-06-01
+sea,Seattle,Sound Transit Link + King Co. Metro,3.50,4.00,3.50,7.00,Link Light Rail roundtrip to International District/Chinatown,0,N/A,false,16.28,43,https://www.soundtransit.org,2026-06-01

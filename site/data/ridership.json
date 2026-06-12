@@ -1,0 +1,1321 @@
+{
+  "meta": {
+    "updated": "2026-06-11"
+  },
+  "cities": {
+    "nyc": [
+      {
+        "week": "2026-01-05",
+        "baseline": 3200000,
+        "actual": 3218247,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-12",
+        "baseline": 3200000,
+        "actual": 3124178,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-19",
+        "baseline": 3200000,
+        "actual": 3222846,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-26",
+        "baseline": 3200000,
+        "actual": 3206699,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-02",
+        "baseline": 3200000,
+        "actual": 3249766,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-09",
+        "baseline": 3200000,
+        "actual": 3133752,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-16",
+        "baseline": 3200000,
+        "actual": 3244537,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-23",
+        "baseline": 3200000,
+        "actual": 3258431,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-02",
+        "baseline": 3200000,
+        "actual": 3139564,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-09",
+        "baseline": 3200000,
+        "actual": 3296465,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-16",
+        "baseline": 3200000,
+        "actual": 3138409,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-23",
+        "baseline": 3200000,
+        "actual": 3170759,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-30",
+        "baseline": 3200000,
+        "actual": 3232665,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-06",
+        "baseline": 3200000,
+        "actual": 3211960,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-13",
+        "baseline": 3200000,
+        "actual": 3214179,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-20",
+        "baseline": 3200000,
+        "actual": 3161131,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-27",
+        "baseline": 3200000,
+        "actual": 3248362,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-04",
+        "baseline": 3200000,
+        "actual": 3078763,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-11",
+        "baseline": 3200000,
+        "actual": 3250583,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-18",
+        "baseline": 3200000,
+        "actual": 3273324,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-25",
+        "baseline": 3200000,
+        "actual": 3296165,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-06-01",
+        "baseline": 3200000,
+        "actual": 3201492,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-06-08",
+        "baseline": 3200000,
+        "actual": 3605279,
+        "projected": null,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-15",
+        "baseline": 3200000,
+        "actual": null,
+        "projected": 3648000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-22",
+        "baseline": 3200000,
+        "actual": null,
+        "projected": 3648000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-29",
+        "baseline": 3200000,
+        "actual": null,
+        "projected": 3648000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-06",
+        "baseline": 3200000,
+        "actual": null,
+        "projected": 3648000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-13",
+        "baseline": 3200000,
+        "actual": null,
+        "projected": 3648000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-20",
+        "baseline": 3200000,
+        "actual": null,
+        "projected": 3648000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-27",
+        "baseline": 3200000,
+        "actual": null,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-08-03",
+        "baseline": 3200000,
+        "actual": null,
+        "projected": null,
+        "is_wc_week": false
+      }
+    ],
+    "cdmx": [
+      {
+        "week": "2026-01-05",
+        "baseline": 4100000,
+        "actual": 4137639,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-12",
+        "baseline": 4100000,
+        "actual": 4161085,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-19",
+        "baseline": 4100000,
+        "actual": 4067538,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-26",
+        "baseline": 4100000,
+        "actual": 4104898,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-02",
+        "baseline": 4100000,
+        "actual": 4051674,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-09",
+        "baseline": 4100000,
+        "actual": 4092475,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-16",
+        "baseline": 4100000,
+        "actual": 4042729,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-23",
+        "baseline": 4100000,
+        "actual": 4036327,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-02",
+        "baseline": 4100000,
+        "actual": 4203444,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-09",
+        "baseline": 4100000,
+        "actual": 4023204,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-16",
+        "baseline": 4100000,
+        "actual": 4055524,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-23",
+        "baseline": 4100000,
+        "actual": 4203264,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-30",
+        "baseline": 4100000,
+        "actual": 4013201,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-06",
+        "baseline": 4100000,
+        "actual": 4183783,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-13",
+        "baseline": 4100000,
+        "actual": 4103101,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-20",
+        "baseline": 4100000,
+        "actual": 4086271,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-27",
+        "baseline": 4100000,
+        "actual": 4120350,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-04",
+        "baseline": 4100000,
+        "actual": 4210054,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-11",
+        "baseline": 4100000,
+        "actual": 4208274,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-18",
+        "baseline": 4100000,
+        "actual": 4046082,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-25",
+        "baseline": 4100000,
+        "actual": 4083570,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-06-01",
+        "baseline": 4100000,
+        "actual": 4108354,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-06-08",
+        "baseline": 4100000,
+        "actual": 4774349,
+        "projected": null,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-15",
+        "baseline": 4100000,
+        "actual": null,
+        "projected": 4592000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-22",
+        "baseline": 4100000,
+        "actual": null,
+        "projected": 4592000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-29",
+        "baseline": 4100000,
+        "actual": null,
+        "projected": 4592000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-06",
+        "baseline": 4100000,
+        "actual": null,
+        "projected": 4592000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-13",
+        "baseline": 4100000,
+        "actual": null,
+        "projected": 4592000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-20",
+        "baseline": 4100000,
+        "actual": null,
+        "projected": 4592000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-27",
+        "baseline": 4100000,
+        "actual": null,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-08-03",
+        "baseline": 4100000,
+        "actual": null,
+        "projected": null,
+        "is_wc_week": false
+      }
+    ],
+    "tor": [
+      {
+        "week": "2026-01-05",
+        "baseline": 2800000,
+        "actual": 2810442,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-12",
+        "baseline": 2800000,
+        "actual": 2848998,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-19",
+        "baseline": 2800000,
+        "actual": 2833374,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-26",
+        "baseline": 2800000,
+        "actual": 2903350,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-02",
+        "baseline": 2800000,
+        "actual": 2810744,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-09",
+        "baseline": 2800000,
+        "actual": 2815570,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-16",
+        "baseline": 2800000,
+        "actual": 2807856,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-23",
+        "baseline": 2800000,
+        "actual": 2804744,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-02",
+        "baseline": 2800000,
+        "actual": 2757676,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-09",
+        "baseline": 2800000,
+        "actual": 2808037,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-16",
+        "baseline": 2800000,
+        "actual": 2744927,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-23",
+        "baseline": 2800000,
+        "actual": 2723805,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-30",
+        "baseline": 2800000,
+        "actual": 2809373,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-06",
+        "baseline": 2800000,
+        "actual": 2787720,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-13",
+        "baseline": 2800000,
+        "actual": 2858398,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-20",
+        "baseline": 2800000,
+        "actual": 2827267,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-27",
+        "baseline": 2800000,
+        "actual": 2740412,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-04",
+        "baseline": 2800000,
+        "actual": 2859979,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-11",
+        "baseline": 2800000,
+        "actual": 2752196,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-18",
+        "baseline": 2800000,
+        "actual": 2824469,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-25",
+        "baseline": 2800000,
+        "actual": 2741044,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-06-01",
+        "baseline": 2800000,
+        "actual": 2784004,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-06-08",
+        "baseline": 2800000,
+        "actual": 3027044,
+        "projected": null,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-15",
+        "baseline": 2800000,
+        "actual": null,
+        "projected": 3080000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-22",
+        "baseline": 2800000,
+        "actual": null,
+        "projected": 3080000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-29",
+        "baseline": 2800000,
+        "actual": null,
+        "projected": 3080000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-06",
+        "baseline": 2800000,
+        "actual": null,
+        "projected": 3080000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-13",
+        "baseline": 2800000,
+        "actual": null,
+        "projected": 3080000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-20",
+        "baseline": 2800000,
+        "actual": null,
+        "projected": 3080000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-27",
+        "baseline": 2800000,
+        "actual": null,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-08-03",
+        "baseline": 2800000,
+        "actual": null,
+        "projected": null,
+        "is_wc_week": false
+      }
+    ],
+    "van": [
+      {
+        "week": "2026-01-05",
+        "baseline": 1050000,
+        "actual": 1090068,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-12",
+        "baseline": 1050000,
+        "actual": 1070370,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-19",
+        "baseline": 1050000,
+        "actual": 997471,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-26",
+        "baseline": 1050000,
+        "actual": 1041830,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-02",
+        "baseline": 1050000,
+        "actual": 1049429,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-09",
+        "baseline": 1050000,
+        "actual": 1065551,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-16",
+        "baseline": 1050000,
+        "actual": 1029087,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-23",
+        "baseline": 1050000,
+        "actual": 1052545,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-02",
+        "baseline": 1050000,
+        "actual": 1076158,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-09",
+        "baseline": 1050000,
+        "actual": 1058967,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-16",
+        "baseline": 1050000,
+        "actual": 1027945,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-23",
+        "baseline": 1050000,
+        "actual": 1049193,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-30",
+        "baseline": 1050000,
+        "actual": 1072714,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-06",
+        "baseline": 1050000,
+        "actual": 1043451,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-13",
+        "baseline": 1050000,
+        "actual": 1051949,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-20",
+        "baseline": 1050000,
+        "actual": 1008532,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-27",
+        "baseline": 1050000,
+        "actual": 1031636,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-04",
+        "baseline": 1050000,
+        "actual": 1058184,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-11",
+        "baseline": 1050000,
+        "actual": 1058130,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-18",
+        "baseline": 1050000,
+        "actual": 1019889,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-25",
+        "baseline": 1050000,
+        "actual": 1079726,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-06-01",
+        "baseline": 1050000,
+        "actual": 1048608,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-06-08",
+        "baseline": 1050000,
+        "actual": 1212795,
+        "projected": null,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-15",
+        "baseline": 1050000,
+        "actual": null,
+        "projected": 1218000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-22",
+        "baseline": 1050000,
+        "actual": null,
+        "projected": 1218000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-29",
+        "baseline": 1050000,
+        "actual": null,
+        "projected": 1218000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-06",
+        "baseline": 1050000,
+        "actual": null,
+        "projected": 1218000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-13",
+        "baseline": 1050000,
+        "actual": null,
+        "projected": 1218000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-20",
+        "baseline": 1050000,
+        "actual": null,
+        "projected": 1218000,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-27",
+        "baseline": 1050000,
+        "actual": null,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-08-03",
+        "baseline": 1050000,
+        "actual": null,
+        "projected": null,
+        "is_wc_week": false
+      }
+    ],
+    "atl": [
+      {
+        "week": "2026-01-05",
+        "baseline": 850000,
+        "actual": 846497,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-12",
+        "baseline": 850000,
+        "actual": 842516,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-19",
+        "baseline": 850000,
+        "actual": 859744,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-26",
+        "baseline": 850000,
+        "actual": 824575,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-02",
+        "baseline": 850000,
+        "actual": 859982,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-09",
+        "baseline": 850000,
+        "actual": 839194,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-16",
+        "baseline": 850000,
+        "actual": 851979,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-23",
+        "baseline": 850000,
+        "actual": 863101,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-02",
+        "baseline": 850000,
+        "actual": 869310,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-09",
+        "baseline": 850000,
+        "actual": 820801,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-16",
+        "baseline": 850000,
+        "actual": 849977,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-23",
+        "baseline": 850000,
+        "actual": 840788,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-30",
+        "baseline": 850000,
+        "actual": 841818,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-06",
+        "baseline": 850000,
+        "actual": 878281,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-13",
+        "baseline": 850000,
+        "actual": 857120,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-20",
+        "baseline": 850000,
+        "actual": 859916,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-27",
+        "baseline": 850000,
+        "actual": 839052,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-04",
+        "baseline": 850000,
+        "actual": 859398,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-11",
+        "baseline": 850000,
+        "actual": 822091,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-18",
+        "baseline": 850000,
+        "actual": 838078,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-25",
+        "baseline": 850000,
+        "actual": 840337,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-06-01",
+        "baseline": 850000,
+        "actual": 856984,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-06-08",
+        "baseline": 850000,
+        "actual": 950808,
+        "projected": null,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-15",
+        "baseline": 850000,
+        "actual": null,
+        "projected": 926500,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-22",
+        "baseline": 850000,
+        "actual": null,
+        "projected": 926500,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-29",
+        "baseline": 850000,
+        "actual": null,
+        "projected": 926500,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-06",
+        "baseline": 850000,
+        "actual": null,
+        "projected": 926500,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-13",
+        "baseline": 850000,
+        "actual": null,
+        "projected": 926500,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-20",
+        "baseline": 850000,
+        "actual": null,
+        "projected": 926500,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-27",
+        "baseline": 850000,
+        "actual": null,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-08-03",
+        "baseline": 850000,
+        "actual": null,
+        "projected": null,
+        "is_wc_week": false
+      }
+    ],
+    "sea": [
+      {
+        "week": "2026-01-05",
+        "baseline": 620000,
+        "actual": 614473,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-12",
+        "baseline": 620000,
+        "actual": 617468,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-19",
+        "baseline": 620000,
+        "actual": 612282,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-01-26",
+        "baseline": 620000,
+        "actual": 620033,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-02",
+        "baseline": 620000,
+        "actual": 621950,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-09",
+        "baseline": 620000,
+        "actual": 619797,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-16",
+        "baseline": 620000,
+        "actual": 622271,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-02-23",
+        "baseline": 620000,
+        "actual": 607353,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-02",
+        "baseline": 620000,
+        "actual": 635271,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-09",
+        "baseline": 620000,
+        "actual": 631712,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-16",
+        "baseline": 620000,
+        "actual": 598240,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-23",
+        "baseline": 620000,
+        "actual": 627724,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-03-30",
+        "baseline": 620000,
+        "actual": 614499,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-06",
+        "baseline": 620000,
+        "actual": 625972,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-13",
+        "baseline": 620000,
+        "actual": 616142,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-20",
+        "baseline": 620000,
+        "actual": 612166,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-04-27",
+        "baseline": 620000,
+        "actual": 600730,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-04",
+        "baseline": 620000,
+        "actual": 618322,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-11",
+        "baseline": 620000,
+        "actual": 627767,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-18",
+        "baseline": 620000,
+        "actual": 612460,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-05-25",
+        "baseline": 620000,
+        "actual": 614877,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-06-01",
+        "baseline": 620000,
+        "actual": 621762,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-06-08",
+        "baseline": 620000,
+        "actual": 684413,
+        "projected": null,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-15",
+        "baseline": 620000,
+        "actual": null,
+        "projected": 688200,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-22",
+        "baseline": 620000,
+        "actual": null,
+        "projected": 688200,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-06-29",
+        "baseline": 620000,
+        "actual": null,
+        "projected": 688200,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-06",
+        "baseline": 620000,
+        "actual": null,
+        "projected": 688200,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-13",
+        "baseline": 620000,
+        "actual": null,
+        "projected": 688200,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-20",
+        "baseline": 620000,
+        "actual": null,
+        "projected": 688200,
+        "is_wc_week": true
+      },
+      {
+        "week": "2026-07-27",
+        "baseline": 620000,
+        "actual": null,
+        "projected": null,
+        "is_wc_week": false
+      },
+      {
+        "week": "2026-08-03",
+        "baseline": 620000,
+        "actual": null,
+        "projected": null,
+        "is_wc_week": false
+      }
+    ]
+  }
+}

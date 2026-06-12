@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Full Capacity: How the 2026 World Cup Stress-Tests North American Transit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fafaf8;--text:#1a1a2e;--muted:#6b7280;--light:#f3f4f6;
+  --accent:#1a73e8;--gold:#b45309;--red:#dc2626;--green:#16a34a;
+  --border:#e5e7eb;--serif:'Merriweather',Georgia,serif;--sans:'Inter',sans-serif;
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#0d1117;--text:#e6edf3;--muted:#8b949e;--light:#161b22;--border:#30363d;--accent:#58a6ff}
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--serif);font-size:18px;line-height:1.8}
+a{color:var(--accent)}
+img,svg{max-width:100%;height:auto}
+
+/* ── LAYOUT ── */
+.container{max-width:720px;margin:0 auto;padding:0 20px}
+.container-wide{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* ── NAV ── */
+.report-nav{background:var(--bg);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;padding:10px 0}
+.report-nav .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.nav-title{font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--text)}
+.nav-links{display:flex;gap:16px;font-family:var(--sans);font-size:.8rem}
+.nav-links a{color:var(--muted);text-decoration:none}
+.nav-links a:hover{color:var(--text)}
+.dashboard-link{background:var(--accent);color:#fff!important;padding:5px 14px;border-radius:20px;font-weight:500}
+
+/* ── HERO ── */
+.report-hero{padding:72px 0 48px;border-bottom:2px solid var(--text)}
+.report-hero .eyebrow{font-family:var(--sans);font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px}
+.report-hero h1{font-size:clamp(1.8rem,5vw,3rem);font-weight:700;line-height:1.2;letter-spacing:-.02em;margin-bottom:20px}
+.report-hero .deck{font-size:1.15rem;color:var(--muted);line-height:1.7;margin-bottom:28px}
+.report-meta{display:flex;flex-wrap:wrap;gap:16px;font-family:var(--sans);font-size:.82rem;color:var(--muted);border-top:1px solid var(--border);padding-top:16px}
+.report-meta span{display:flex;align-items:center;gap:6px}
+
+/* ── TYPOGRAPHY ── */
+h2{font-size:1.6rem;font-weight:700;margin:52px 0 16px;line-height:1.3}
+h2::before{content:'';display:block;width:32px;height:3px;background:var(--accent);margin-bottom:10px}
+h3{font-family:var(--sans);font-size:1.05rem;font-weight:600;margin:28px 0 10px;color:var(--text)}
+p{margin-bottom:1.2em}
+ul,ol{padding-left:1.4em;margin-bottom:1.2em}
+li{margin-bottom:.4em}
+blockquote{border-left:3px solid var(--accent);padding:12px 0 12px 20px;margin:32px 0;color:var(--muted);font-style:italic}
+blockquote cite{display:block;margin-top:8px;font-style:normal;font-size:.82rem;font-family:var(--sans)}
+strong{font-weight:700}
+code{font-family:monospace;background:var(--light);padding:2px 6px;border-radius:3px;font-size:.88em}
+hr{border:none;border-top:1px solid var(--border);margin:40px 0}
+
+/* ── CALLOUT BOXES ── */
+.callout{border-radius:8px;padding:20px 24px;margin:28px 0;font-family:var(--sans);font-size:.88rem;line-height:1.7}
+.callout-note{background:rgba(26,115,232,.06);border:1px solid rgba(26,115,232,.2)}
+.callout-pending{background:rgba(232,169,26,.08);border:1px solid rgba(232,169,26,.3)}
+.callout-method{background:var(--light);border:1px solid var(--border)}
+.callout h4{font-weight:600;margin-bottom:8px;text-transform:uppercase;font-size:.75rem;letter-spacing:.08em;color:var(--muted)}
+.callout-note h4{color:var(--accent)}
+.callout-pending h4{color:#b45309}
+
+/* ── TABLES ── */
+.table-wrap{overflow-x:auto;margin:24px 0}
+table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:.85rem}
+th{text-align:left;padding:10px 12px;border-bottom:2px solid var(--border);font-weight:600;color:var(--muted);text-transform:uppercase;font-size:.75rem;letter-spacing:.08em}
+td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even){background:var(--light)}
+.strain-badge-sm{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.75rem;font-weight:700;color:#fff}
+
+/* ── CHARTS (placeholders, replaced by pipeline output) ── */
+.chart-placeholder{background:var(--light);border:1px dashed var(--border);border-radius:8px;padding:32px;text-align:center;color:var(--muted);font-family:var(--sans);font-size:.85rem;margin:24px 0}
+.chart-placeholder .pending{font-size:.75rem;margin-top:8px;color:var(--gold)}
+
+/* ── CITY SECTION ── */
+.city-section{border:1px solid var(--border);border-radius:8px;padding:24px;margin:28px 0;background:var(--bg)}
+.city-section h3{margin-top:0;font-size:1.1rem;color:var(--accent)}
+.city-section .system-tag{font-family:var(--sans);font-size:.78rem;color:var(--muted);margin-bottom:16px}
+.kv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+.kv{background:var(--light);border-radius:6px;padding:12px}
+.kv .k{font-family:var(--sans);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.kv .v{font-size:1.1rem;font-weight:700;color:var(--text);margin-top:4px;font-family:var(--sans)}
+
+/* ── SECTIONS ── */
+.section-sep{height:1px;background:var(--border);margin:60px 0}
+.methods-box{background:var(--light);border-radius:8px;padding:20px;font-family:var(--sans);font-size:.82rem;line-height:1.7;color:var(--muted)}
+.methods-box h4{font-weight:600;color:var(--text);margin-bottom:8px}
+
+/* ── FOOTER ── */
+.report-footer{background:var(--light);border-top:1px solid var(--border);padding:40px 0;margin-top:80px;font-family:var(--sans);font-size:.8rem;color:var(--muted);line-height:1.8}
+.report-footer a{color:var(--muted)}
+.sources-list{list-style:none;padding:0}
+.sources-list li{padding:4px 0;border-bottom:1px solid var(--border)}
+.sources-list li:last-child{border-bottom:none}
+.footnote{font-family:var(--sans);font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:12px;margin-top:32px}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="report-nav">
+  <div class="container-wide inner">
+    <div class="nav-title">Full Capacity · 2026 World Cup Transit</div>
+    <div class="nav-links">
+      <a href="#cities">Cities</a>
+      <a href="#prior">Prior Tournaments</a>
+      <a href="#results">Results</a>
+      <a href="#fares">Fares</a>
+      <a href="#methods">Methods</a>
+      <a href="dashboard.html" class="dashboard-link">Interactive Dashboard</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="container">
+  <div class="report-hero">
+    <div class="eyebrow">Analysis · FIFA World Cup 2026 · Jun 11 – Jul 19, 2026</div>
+    <h1>Full Capacity: How the 2026 World Cup Stress-Tests North American Transit</h1>
+    <p class="deck">
+      When 48 nations descend on six North American cities, their transit systems face the most concentrated demand
+      spike of the decade. This is a causal-inference analysis of ridership impact, fare equity, and operational strain
+      across Toronto, Vancouver, New York/New Jersey, Atlanta, Seattle, and Mexico City.
+    </p>
+    <div class="report-meta">
+      <span>By <strong>Dhruv Mehndiratta</strong></span>
+      <span>Started: June 11, 2026 (Day 1 of tournament)</span>
+      <span>Living analysis — updated weekly through July 19</span>
+      <span><a href="dashboard.html">Interactive Dashboard →</a></span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ── 1. HOOK ── -->
+<h2>Opening Day: Mexico City and the $150 Train</h2>
+
+<p>
+  At 5pm local time on June 11, 2026, the first whistle blew at Estadio Azteca. Eighty-seven thousand fans
+  filled the oldest World Cup venue in history — and roughly 50,000 of them got there on the Mexico City Metro,
+  60 cents return.
+</p>
+
+<p>
+  One thousand miles northeast, in New Jersey, tickets for a July 19 Final at MetLife Stadium were already
+  reselling above $3,000. Getting to MetLife is a different equation from getting to the Azteca. NJ Transit
+  announced a special World Cup train-and-shuttle package priced at <strong>approximately $150 per person</strong>
+  from Secaucus Junction — equivalent to 8.8 hours at New York City's minimum wage of $17/hour.
+  The standard roundtrip train runs about $25.
+</p>
+
+<blockquote>
+  "The real price of the World Cup is not in the ticket. It is in the corridor between your door and the stadium gate."
+  <cite>— paraphrasing transit equity scholars on mega-event fare design</cite>
+</blockquote>
+
+<p>
+  This report applies econometric methods drawn from public-finance and urban economics to document, estimate,
+  and explain that gap — city by city, match by match, dollar by dollar.
+</p>
+
+<div class="callout callout-pending">
+  <h4>Living Analysis Notice</h4>
+  This is a <strong>living document</strong>. We publish results as data becomes available.
+  Event-study results (daily/hourly MTA and CDMX data) appear first, typically 4–8 weeks
+  into the tournament. Panel DiD and synthetic control results follow in August, once the
+  FTA National Transit Database releases June 2026 monthly figures. Check the
+  <a href="dashboard.html">Interactive Dashboard</a> for the latest data.
+</div>
+
+<!-- ── 2. SIX CITIES ── -->
+<h2 id="cities">The Six Cities</h2>
+
+<p>
+  FIFA 2026 spreads 104 matches across 16 North American cities. This analysis focuses on the six where
+  granular, publicly available transit data enables causal identification — and where the range of system
+  types, densities, and fare structures makes for the sharpest contrasts.
+</p>
+
+<!-- NYC -->
+<div class="city-section">
+  <h3>New York / New Jersey — MetLife Stadium</h3>
+  <div class="system-tag">MTA Subway + NJ Transit · 9 matches including the Final</div>
+  <div class="kv-grid">
+    <div class="kv"><div class="k">Stadium capacity</div><div class="v">82,500</div></div>
+    <div class="kv"><div class="k">Transit mode share (est.)</div><div class="v">~45%</div></div>
+    <div class="kv"><div class="k">Standard roundtrip</div><div class="v">~$25 (NJT)</div></div>
+    <div class="kv"><div class="k">WC special package</div><div class="v">~$150 (Secaucus VIP)</div></div>
+    <div class="kv"><div class="k">Peak strain index</div><div class="v" style="color:#f85149">9.5/10 (Final)</div></div>
+  </div>
+  <p>
+    MetLife has no direct rail connection to New York City. Fans from Manhattan must take an NJ Transit
+    train from Penn Station to Secaucus Junction, then a dedicated shuttle. The system has never been
+    designed for simultaneous sell-out events at one stadium. The Final on July 19 is the single
+    highest-strain transit event in this dataset.
+  </p>
+  <p>
+    The $150 Secaucus VIP package — combining a reserved train seat, shuttle, and platform access —
+    generated significant controversy in transit-equity circles. The standard NJT fare makes the trip
+    feasible at ~$25 return; the premium offering creates a two-tier experience explicitly priced around
+    WC demand. <strong>Verify current pricing at NJT.com before citing this figure.</strong>
+  </p>
+</div>
+
+<!-- Mexico City -->
+<div class="city-section">
+  <h3>Mexico City — Estadio Azteca</h3>
+  <div class="system-tag">CDMX Metro (STC) · 5 matches including the opener</div>
+  <div class="kv-grid">
+    <div class="kv"><div class="k">Stadium capacity</div><div class="v">87,523</div></div>
+    <div class="kv"><div class="k">Transit mode share (est.)</div><div class="v">~60%</div></div>
+    <div class="kv"><div class="k">Standard roundtrip</div><div class="v">$0.55 USD (MXN $10)</div></div>
+    <div class="kv"><div class="k">Min wage hourly (USD)</div><div class="v">~$1.43</div></div>
+    <div class="kv"><div class="k">Strain index (est.)</div><div class="v" style="color:#e8a91a">7.2/10</div></div>
+  </div>
+  <p>
+    The Mexico City Metro's Line 2 terminates at <em>Estadio Azteca</em> station — one of the most direct
+    stadium-transit connections in the world. At $0.28 per ride (about ₱5 MXN), the CDMX Metro has long
+    been a subsidized public good. Match attendance of 83,000 implies roughly 49,000 transit riders;
+    Line 2 runs at approximately 40 trains per hour during event service.
+  </p>
+  <p>
+    The fare-equity picture here inverts every other city in this study. Getting to the Azteca costs less
+    in absolute terms than a single station transfer costs in New York — and the $21M infrastructure
+    investment made ahead of the tournament has further expanded service hours.
+  </p>
+</div>
+
+<!-- Toronto -->
+<div class="city-section">
+  <h3>Toronto — BMO Field</h3>
+  <div class="system-tag">TTC + GO Transit · 5 matches</div>
+  <div class="kv-grid">
+    <div class="kv"><div class="k">Stadium capacity</div><div class="v">~45,736</div></div>
+    <div class="kv"><div class="k">Transit mode share (est.)</div><div class="v">~72%</div></div>
+    <div class="kv"><div class="k">Standard roundtrip</div><div class="v">$4.84 CAD ($3.56 USD)</div></div>
+    <div class="kv"><div class="k">Projected WC boardings</div><div class="v">3.8 million</div></div>
+    <div class="kv"><div class="k">Strain index (est.)</div><div class="v" style="color:#e8a91a">6.4/10</div></div>
+  </div>
+  <p>
+    BMO Field at Exhibition Place is served by TTC routes 509 and 511, with GO Transit connections from
+    Union Station. At ~45,700 seats, it is the smallest World Cup venue in our six-city sample, but Toronto's
+    high transit mode share and compact urban form mean a relatively lower strain index than cities
+    with larger stadia and lower ridership.
+  </p>
+  <p>
+    TTC has projected 3.8 million total boardings attributable to World Cup events — the highest headline
+    figure of any Canadian city. The TTC CEO's report flagged additional streetcar and subway service on
+    match days. This is Toronto's largest sports-transit mobilisation since the 2015 Pan Am Games.
+  </p>
+</div>
+
+<!-- Vancouver -->
+<div class="city-section">
+  <h3>Vancouver — BC Place</h3>
+  <div class="system-tag">TransLink (SkyTrain Expo + Millennium lines) · 5 matches · Free transit with ticket</div>
+  <div class="kv-grid">
+    <div class="kv"><div class="k">Stadium capacity</div><div class="v">54,500</div></div>
+    <div class="kv"><div class="k">Transit mode share (est.)</div><div class="v">~80%</div></div>
+    <div class="kv"><div class="k">Standard roundtrip</div><div class="v">Free (included w/ ticket)</div></div>
+    <div class="kv"><div class="k">WC transit investment</div><div class="v">$21.6M CAD</div></div>
+    <div class="kv"><div class="k">Strain index (est.)</div><div class="v" style="color:#e8a91a">7.9/10</div></div>
+  </div>
+  <p>
+    Vancouver has the best stadium-transit integration in North America for this tournament. BC Place is
+    a two-minute walk from Stadium-Chinatown station, served by both the Expo and Millennium SkyTrain lines.
+    TransLink's decision to include transit with FIFA match tickets mirrors FIFA's Qatar 2022 free-transit
+    policy and Vancouver's own 2010 Winter Olympics playbook.
+  </p>
+  <p>
+    The $21.6M CAD investment (<em>Daily Hive</em>, 2025) funds ~600 additional bus trips per day and
+    enhanced SkyTrain frequency during the tournament. Even so, the 80% transit mode share and
+    limited SkyTrain headways post-match generate a strain index above 7 — corridor crowding is a real
+    concern even with the best planning.
+  </p>
+</div>
+
+<!-- Atlanta -->
+<div class="city-section">
+  <h3>Atlanta — Mercedes-Benz Stadium</h3>
+  <div class="system-tag">MARTA Red + Gold lines · 5 matches</div>
+  <div class="kv-grid">
+    <div class="kv"><div class="k">Stadium capacity</div><div class="v">71,000</div></div>
+    <div class="kv"><div class="k">Transit mode share (est.)</div><div class="v">~28%</div></div>
+    <div class="kv"><div class="k">Standard roundtrip</div><div class="v">$5.00 (MARTA)</div></div>
+    <div class="kv"><div class="k">Round-trip as % min wage</div><div class="v" style="color:#dc2626">69% (GA min: $7.25/hr)</div></div>
+    <div class="kv"><div class="k">Strain index (est.)</div><div class="v" style="color:#e8a91a">6.7/10</div></div>
+  </div>
+  <p>
+    Atlanta is the most car-dependent city in our sample. Mercedes-Benz Stadium sits near GWCC/CNN Center
+    station (Red and Gold lines), but typical mode share to major events is under 30%. The World Cup's
+    global audience will include many visitors unfamiliar with Atlanta's sprawl, likely increasing transit
+    use above baseline — making MARTA's frequency and fare structure unusually visible.
+  </p>
+  <p>
+    Georgia's minimum wage sits at the federal floor of $7.25/hour. A $5 MARTA roundtrip to the stadium
+    represents <strong>69% of one hour's minimum wage</strong> — the highest affordability burden of
+    any US city in this dataset. This is not a design failure unique to MARTA; it reflects Georgia's
+    political choice to keep the minimum wage at its 2009 level while transit costs have risen.
+  </p>
+</div>
+
+<!-- Seattle -->
+<div class="city-section">
+  <h3>Seattle — Lumen Field</h3>
+  <div class="system-tag">Sound Transit Link + King County Metro · 5 matches</div>
+  <div class="kv-grid">
+    <div class="kv"><div class="k">Stadium capacity</div><div class="v">72,000</div></div>
+    <div class="kv"><div class="k">Transit mode share (est.)</div><div class="v">~38%</div></div>
+    <div class="kv"><div class="k">Standard roundtrip</div><div class="v">$7.00 (Link)</div></div>
+    <div class="kv"><div class="k">Min wage hourly</div><div class="v">$16.28 (WA)</div></div>
+    <div class="kv"><div class="k">Strain index (est.)</div><div class="v" style="color:#e8a91a">7.2/10</div></div>
+  </div>
+  <p>
+    Lumen Field is served by International District/Chinatown station on the Link Light Rail,
+    which connects to Sea-Tac Airport, Capitol Hill, University District, and Northgate — providing
+    relatively broad geographic coverage for a system that is still expanding. King County Metro
+    buses add further capacity from West Seattle, Eastside, and South King County.
+  </p>
+  <p>
+    The post-match dispersal challenge is acute: 72,000 fans must leave a stadium that is essentially
+    on a narrow waterfront strip, with the rail corridor as the primary alternative to gridlocked
+    surface streets. Sound Transit is running enhanced Link frequency during matches, but the
+    30-minute egress window is tight. Our strain index captures this timing constraint.
+  </p>
+</div>
+
+<div class="section-sep"></div>
+
+<!-- ── 3. PRIOR TOURNAMENTS ── -->
+<h2 id="prior">What Prior Tournaments Predict</h2>
+
+<h3>Russia 2018: The Baseline for Modern World Cups</h3>
+<p>
+  Russia 2018 attracted approximately 3.0 million visitors, with Moscow hosting the final at Luzhniki Stadium
+  (81,000 capacity). Moscow's Metro system handled the surge with minimal service failures, aided by
+  extended hours and high pre-existing frequency. The key lesson: systems designed for dense urban cores
+  handle World Cup demand better than corridor-dependent suburban systems. MetLife fails this test;
+  CDMX and Vancouver pass it.
+</p>
+
+<h3>Qatar 2022: Free Transit as Policy Choice</h3>
+<p>
+  Doha's 2022 World Cup introduced a model worth examining: <strong>all transit was free for FIFA ticket holders</strong>,
+  integrated into the QR code on the match ticket. The Doha Metro — brand-new for the tournament —
+  reported single-day ridership records of over 500,000 trips during the Final weekend.
+</p>
+<p>
+  Vancouver has adopted the same bundled-transit policy for 2026. The policy has three effects: it
+  increases transit mode share, reduces post-match dispersal time (fewer passengers dealing with
+  fare payment), and makes the equity calculus simple — everyone pays the same amount to get to
+  the stadium (nothing), regardless of income.
+</p>
+
+<h3>Atlanta 1996 Olympics: MARTA's Finest Hour</h3>
+<p>
+  The 1996 Summer Olympics remain MARTA's highest ridership event in history. Daily ridership peaked
+  at over 250,000 trips (vs. a typical ~250,000 average then — a near-doubling). MARTA expanded
+  service hours to near-24h operation and ran special event trains to venues across Atlanta.
+  Historical NTD data confirms the lift. Thirty years later, MARTA is being asked to do it again
+  for soccer, at a stadium it serves better than any 1996 venue.
+</p>
+
+<div class="callout callout-method">
+  <h4>Identification strategy</h4>
+  We use three complementary methods to estimate the causal effect of tournament hosting on ridership.
+  Each method has different identification assumptions and data requirements; the three together
+  build a consistent picture.<br><br>
+  <strong>Synthetic control (monthly):</strong> Constructs a "synthetic" counterfactual for each host agency
+  using a weighted combination of non-host agencies matched on pre-period ridership trends.
+  Inference via in-space placebo tests (every non-host run as pseudo-treated; rank RMSPE ratio).<br><br>
+  <strong>Panel DiD (monthly):</strong> log(UPT) on Host×WC_Window, agency + month-year FEs, clustered SEs.
+  Event-time plot tests pre-trends. Donor pool: non-host US agencies only.<br><br>
+  <strong>Event study (daily/hourly):</strong> Match-day regression with day-of-week × week FE; estimates
+  lift by hour relative to kickoff and by station tier. Headline micro evidence, available first.
+</div>
+
+<div class="section-sep"></div>
+
+<!-- ── 4. RESULTS ── -->
+<h2 id="results">Results</h2>
+
+<div class="callout callout-pending">
+  <h4>Results Status — Day 1 of Tournament</h4>
+  Tournament started today (June 11, 2026). Results sections will be populated as data becomes available:
+  <ul style="margin-top:8px">
+    <li><strong>Event study (MTA/CDMX):</strong> ~4–6 weeks after first match — expected late July 2026</li>
+    <li><strong>Panel DiD + Synthetic Control:</strong> requires NTD June release — expected August 2026</li>
+    <li><strong>Fare burden analysis:</strong> Complete — see Section 5 below</li>
+    <li><strong>Strain index:</strong> Complete — see <a href="dashboard.html">Dashboard</a></li>
+  </ul>
+</div>
+
+<h3>4.1 Strain Index Rankings</h3>
+<p>
+  The Transit Strain Index is a pre-tournament measure combining projected incremental demand
+  (stadium capacity × transit mode share × fill rate) against available corridor capacity
+  (serving lines × vehicles per hour × vehicle capacity × 3-hour peak window).
+  It is a planning tool, not a measured outcome — it will be calibrated against actual ridership
+  as data arrives.
+</p>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr><th>City</th><th>Stadium</th><th>Peak Strain</th><th>Primary constraint</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>New York/NJ (Final)</td><td>MetLife</td>
+      <td><span class="strain-badge-sm" style="background:#f85149">9.5</span></td>
+      <td>Single-direction NJT corridor; no rail redundancy to MetLife</td></tr>
+    <tr><td>New York/NJ (Group)</td><td>MetLife</td>
+      <td><span class="strain-badge-sm" style="background:#e8431a">8.5</span></td>
+      <td>Same corridor at 82,500 × 45% mode share</td></tr>
+    <tr><td>Vancouver</td><td>BC Place</td>
+      <td><span class="strain-badge-sm" style="background:#e8431a">7.9</span></td>
+      <td>Post-match SkyTrain crush even at high frequency</td></tr>
+    <tr><td>Seattle</td><td>Lumen Field</td>
+      <td><span class="strain-badge-sm" style="background:#e8a91a">7.2</span></td>
+      <td>Constrained waterfront egress; 72k fans in 30 min</td></tr>
+    <tr><td>Mexico City</td><td>Azteca</td>
+      <td><span class="strain-badge-sm" style="background:#e8a91a">7.2</span></td>
+      <td>Line 2 capacity manageable but late-night demand spike</td></tr>
+    <tr><td>Atlanta</td><td>Mercedes-Benz</td>
+      <td><span class="strain-badge-sm" style="background:#e8a91a">6.7</span></td>
+      <td>Low base mode share means actual transit riders are manageable; capacity concern is parking</td></tr>
+    <tr><td>Toronto</td><td>BMO Field</td>
+      <td><span class="strain-badge-sm" style="background:#e8a91a">6.4</span></td>
+      <td>Smallest stadium (45k) partially offsets high mode share</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>4.2 Event Study — NYC (MTA/NJT daily ridership)</h3>
+<div class="chart-placeholder">
+  <strong>Figure: NYC Daily Ridership — Match Days vs. Controls</strong><br>
+  D3 chart will render here after MTA publishes June 2026 data (~4 week lag)
+  <div class="pending">Status: Pending — MTA Hourly Ridership dataset 5wq4-mkjj next expected update: early July 2026</div>
+</div>
+
+<h3>4.3 Event Study — Mexico City (CDMX Metro daily ridership)</h3>
+<div class="chart-placeholder">
+  <strong>Figure: CDMX Line 2 Daily Ridership — Match Days vs. Controls</strong><br>
+  Chart will render after CDMX portal publishes June data
+  <div class="pending">Status: Pending — CDMX Afluencia dataset updates with ~2 day lag; populating shortly</div>
+</div>
+
+<h3>4.4 Synthetic Control — Monthly Panel (US cities)</h3>
+<div class="chart-placeholder">
+  <strong>Figure: Synthetic Control — MTA NYC vs. Donor Pool (Monthly)</strong><br>
+  Requires NTD June 2026 release; estimated publication: August 2026
+  <div class="pending">Status: Pending NTD data</div>
+</div>
+
+<div class="section-sep"></div>
+
+<!-- ── 5. FARE BURDEN ── -->
+<h2 id="fares">Fare Burden and Equity</h2>
+
+<p>
+  Transit fares for stadium trips operate at the intersection of pricing policy, urban geography, and
+  political economy. The six-city comparison in this analysis reveals gaps that reflect deliberate
+  policy choices as much as cost structures.
+</p>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr><th>City</th><th>Roundtrip (USD)</th><th>WC Special</th><th>Min wage/hr</th><th>Trip as % wage</th><th>Free w/ ticket?</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Mexico City</td><td>$0.55</td><td>—</td><td>$1.43</td><td>38%</td><td>No</td></tr>
+    <tr><td>Vancouver</td><td>$0.00</td><td>—</td><td>$12.70</td><td><strong style="color:#16a34a">0%</strong></td><td><strong>Yes</strong></td></tr>
+    <tr><td>Toronto</td><td>$4.84</td><td>—</td><td>$12.57</td><td>38%</td><td>No</td></tr>
+    <tr><td>Seattle</td><td>$7.00</td><td>—</td><td>$16.28</td><td>43%</td><td>No</td></tr>
+    <tr><td>NYC (standard)</td><td>$25.00</td><td>$150 (Secaucus)</td><td>$17.00</td><td>147%</td><td>No</td></tr>
+    <tr><td>Atlanta</td><td>$5.00</td><td>—</td><td>$7.25</td><td><strong style="color:#dc2626">69%</strong></td><td>No</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>
+  The <strong>% of hourly minimum wage</strong> metric normalises fare burden by local purchasing power. It reveals
+  that despite Atlanta's low absolute fare ($5), the trip costs a larger fraction of an hour's minimum
+  wage than anywhere except the standard NJT fare — because Georgia's minimum wage has not been raised
+  from the federal floor of $7.25 since 2009.
+</p>
+
+<p>
+  Vancouver's free-transit policy eliminates the burden entirely. It is worth noting that this policy
+  is not costless — TransLink is funding it from its $21.6M WC budget. The decision reflects a judgment
+  that reducing modal friction (and eliminating fare-collection queues at turnstiles during mass egress)
+  is worth more than the foregone fare revenue.
+</p>
+
+<h3>The NJ Transit Controversy</h3>
+<p>
+  The "Secaucus VIP package" has become a focal point for fare-equity debate in the United States.
+  Priced at approximately $150 — versus a standard ~$25 roundtrip — it bundles guaranteed boarding
+  (rather than open boarding on normal scheduled trains), dedicated platform access, and shuttle service.
+  Critics argue this creates a two-tier transit experience explicitly priced to extract consumer surplus
+  from a captive audience. Defenders note that NJT is offering the standard service at standard prices;
+  the premium is opt-in.
+</p>
+<p>
+  The underlying economics are real: MetLife Stadium is in the Meadowlands, accessible only by NJT rail
+  or private vehicles. There is no subway. NJT has limited capacity to add trains; allocation via price
+  is one mechanism. The question is whether a public authority should use the mechanism — and whether
+  the fare disclosures are sufficiently transparent.
+</p>
+<p class="footnote">
+  <em>Note: Verify exact NJT pricing at njtransit.com before publication. Reported figures are
+  from Front Office Sports and NBC Boston coverage, pre-tournament.</em>
+</p>
+
+<div class="section-sep"></div>
+
+<!-- ── 6. BUSINESS INSIGHTS ── -->
+<h2>Implications: Surge Pricing, LA 2028, and the Corridor Economy</h2>
+
+<h3>6.1 Surge revenue vs. goodwill trade-off</h3>
+<p>
+  NJT's premium product captures incremental revenue from WC demand — but at a reputational cost
+  that extends beyond the tournament. Transit riders remember price spikes. The fare-equity academic
+  literature (Glaeser, Kahn, Gyourko et al.) consistently finds that transit pricing decisions shape
+  long-term mode choice. An agency that prices fans off trains at a World Cup may be training them
+  to drive to the next Superbowl.
+</p>
+
+<h3>6.2 LA 2028 capacity implications</h3>
+<p>
+  Los Angeles hosts the 2028 Summer Olympics. SoFi Stadium — LA Metro-served — will be the centrepiece.
+  LA Metro is currently building the Airport Metro Connector and Crenshaw/LAX line extensions.
+  The 2026 World Cup results from the MetLife and Mercedes-Benz corridors provide advance evidence on:
+  (a) how demand distributes when a city lacks a direct rail connection to its main stadium,
+  (b) what service uplift is achievable on 4–6 weeks notice, and
+  (c) what happens to car traffic when transit is at capacity. LA planners are watching.
+</p>
+
+<h3>6.3 Corridor advertising and naming rights</h3>
+<p>
+  The "Penn Station to MetLife" corridor will carry an estimated 35,000 transit riders per match
+  day. At nine matches, this is ~315,000 person-trips through a defined advertising corridor — for which
+  NJT currently earns effectively zero per-trip advertising revenue. The equivalent figure for
+  the Stadium-Chinatown SkyTrain in Vancouver, scaled to BC Place's 5 matches at 41,000 transit
+  riders per match, is ~205,000 corridor impressions. Both agencies could plausibly monetise this
+  via station branding agreements with sponsors.
+</p>
+
+<div class="section-sep"></div>
+
+<!-- ── 7. METHODS APPENDIX ── -->
+<h2 id="methods">Methods Appendix</h2>
+
+<h3>7.1 Synthetic Control Specification</h3>
+<div class="methods-box">
+  <h4>Estimator</h4>
+  Following Abadie, Diamond, and Hainmueller (2010). Per host-city agency, we construct a donor pool
+  of non-host US transit agencies. Pre-period: 2015–2019, 2022–May 2026 (COVID years 2020–21 excluded
+  from fitting; sensitivity analysis includes them with dummies). Treatment variable: June/July 2026
+  UPT (unlinked passenger trips). Donor pool: see plan for full list; all 2026 host-city agencies excluded.
+  <br><br>
+  <h4>Inference</h4>
+  In-space placebos: every donor agency run as pseudo-treated. Pseudo p-value = fraction of placebos
+  with RMSPE ratio ≥ treated agency. We report 2-sided p-values. Robustness: leave-one-out donor,
+  alternative pre-periods.
+  <br><br>
+  <h4>Limitation</h4>
+  Monthly NTD data dilutes the 4-week WC window. SC will capture any net monthly lift; event studies
+  carry the within-month evidence. An honest null is a finding — if SC shows no effect, the implication
+  is that the June/July baseline already absorbed expected variation.
+</div>
+
+<h3>7.2 Panel DiD Specification</h3>
+<div class="methods-box">
+  log(UPT<sub>it</sub>) = α<sub>i</sub> + γ<sub>t</sub> + β (Host<sub>i</sub> × WC_Window<sub>t</sub>) + ε<sub>it</sub>
+  <br><br>
+  Agency FE α<sub>i</sub>, month-year FE γ<sub>t</sub>. Standard errors clustered by agency (CRVE).
+  Event-time plot: leads/lags of the treatment indicator to test pre-trends (Callaway & Sant'Anna 2021
+  staggered DiD as robustness if needed).
+</div>
+
+<h3>7.3 Event Study Specification (daily)</h3>
+<div class="methods-box">
+  Ridership<sub>d</sub> = Σ β<sub>k</sub> Match_day<sub>d+k</sub> + γ DoW + δ Week_FE + ε<sub>d</sub>
+  <br><br>
+  k ∈ {−7, …, +7}. DoW = day-of-week FE; Week_FE = calendar week FE. Weather controls if NOAA
+  daily data is available (precipitation, temperature). Station tiers: &lt;0.5km, 0.5–2km, 2–5km
+  from MetLife/Azteca.
+</div>
+
+<h3>7.4 Data Sources</h3>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr><th>Source</th><th>Granularity</th><th>ID / URL</th><th>Lag</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>FTA NTD Monthly</td><td>Agency × month, 2002–present</td><td>data.transportation.gov/8bui-9xvu</td><td>~3 months</td></tr>
+    <tr><td>MTA Subway Hourly</td><td>Station × hour, 2025–</td><td>data.ny.gov/5wq4-mkjj</td><td>4–6 weeks</td></tr>
+    <tr><td>CDMX Metro Afluencia</td><td>Daily, by line/station</td><td>datos.cdmx.gob.mx</td><td>~2 days</td></tr>
+    <tr><td>GTFS Feeds</td><td>Static schedules</td><td>Transitland archive</td><td>Realtime</td></tr>
+    <tr><td>Fares / Surge Plans</td><td>Manual, June 2026</td><td>data/manual/fares.csv</td><td>Manual update</td></tr>
+    <tr><td>Match schedule</td><td>Match-level</td><td>data/manual/matches.csv + fifa.com</td><td>Manual update</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>7.5 COVID Handling</h3>
+<p>
+  The years 2020 and 2021 are excluded from the synthetic control pre-period fitting window by default.
+  We include them with a dummy variable in a robustness specification. The baseline panel uses
+  2015–2019 as the primary pre-treatment period, with 2022–May 2026 as additional post-recovery data
+  to establish the current ridership trajectory. Any analysis including 2020–21 includes explicit
+  documentation of the choice.
+</p>
+
+</div><!-- /container -->
+
+<!-- ── FOOTER ── -->
+<footer class="report-footer">
+  <div class="container">
+    <strong style="color:var(--text)">Data and Code</strong>
+    <p style="margin-top:8px">
+      All code and data are available at the project repository.
+      Reproduce with: <code>python run_pipeline.py</code>.
+      See <a href="https://github.com">GitHub</a> for version history.
+      Last pipeline run: <span id="footerUpdated">check site/data/cities.json</span>
+    </p>
+    <br>
+    <strong style="color:var(--text)">Key Sources</strong>
+    <ul class="sources-list" style="margin-top:8px">
+      <li>FTA National Transit Database: <a href="https://www.transit.dot.gov/ntd">transit.dot.gov/ntd</a></li>
+      <li>MTA Subway Hourly Ridership: <a href="https://data.ny.gov/Transportation/MTA-Subway-Hourly-Ridership-Beginning-2025/5wq4-mkjj">data.ny.gov</a></li>
+      <li>CDMX Metro Afluencia: <a href="https://datos.cdmx.gob.mx">datos.cdmx.gob.mx</a></li>
+      <li>TransLink WC service plan: <a href="https://www.translink.ca/rider-guide/taking-transit-to-the-world-cup">translink.ca</a></li>
+      <li>FIFA 2026 match schedule: <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026">fifa.com</a></li>
+      <li>NJT fare reporting: Front Office Sports, NBC Boston (verify current pricing at njtransit.com)</li>
+      <li>TransLink $21.6M: Daily Hive (2025)</li>
+      <li>TTC 3.8M boardings: Globe and Mail / TTC CEO report</li>
+      <li>Abadie, A., Diamond, A., Hainmueller, J. (2010). Synthetic Control Methods. <em>JASA</em>.</li>
+      <li>Callaway, B., Sant'Anna, P. (2021). Difference-in-Differences with Multiple Time Periods. <em>Journal of Econometrics</em>.</li>
+    </ul>
+    <br>
+    <div style="color:var(--muted);font-size:.75rem">
+      Match dates and team assignments are illustrative, based on the pre-tournament schedule plan.
+      Verify against the official FIFA schedule at fifa.com before citing specific match details.
+      Strain indices are model estimates with documented assumptions; they are not official agency figures.
+      This is an independent research project; it is not affiliated with FIFA, any transit agency, or any government body.
+    </div>
+  </div>
+</footer>
+
+<script>
+fetch('./data/cities.json')
+  .then(r => r.json())
+  .then(d => {
+    const el = document.getElementById('footerUpdated');
+    if (el && d.meta?.updated) el.textContent = d.meta.updated;
+  }).catch(()=>{});
+</script>
+</body>
+</html>
