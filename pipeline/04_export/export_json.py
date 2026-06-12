@@ -121,6 +121,7 @@ def export_matches() -> None:
 
 def export_fares() -> None:
     df = pd.read_csv(MANUAL_DIR / "fares.csv")
+    df = df.where(pd.notnull(df), None)  # replace NaN with None so JSON gets null not NaN
     records = df.to_dict(orient="records")
     out = {"meta": {"updated": date.today().isoformat()}, "cities": records}
     _write(SITE_DATA_DIR / "fares.json", out)

@@ -1,36 +1,41 @@
-match_id,city_id,city,stadium,date,kickoff_local,kickoff_utc,round,phase,capacity,expected_attendance,transit_demand_est,strain_rating,notes
-m001,cdmx,Mexico City,Estadio Azteca,2026-06-11,17:00,23:00,Group Stage,group,87523,83147,49888,7.2,Opening match – verify teams from FIFA
-m002,nyc,New York / NJ,MetLife Stadium,2026-06-12,15:00,19:00,Group Stage,group,82500,78375,35269,8.5,Verify teams from FIFA
-m003,sea,Seattle,Lumen Field,2026-06-12,19:00,02:00+1,Group Stage,group,72000,68400,25992,7.1,Verify teams from FIFA
-m004,tor,Toronto,BMO Field,2026-06-13,14:00,18:00,Group Stage,group,45736,43449,31283,6.3,Verify teams from FIFA
-m005,van,Vancouver,BC Place,2026-06-13,17:00,00:00+1,Group Stage,group,54500,51775,41420,7.8,Verify teams from FIFA
-m006,cdmx,Mexico City,Estadio Azteca,2026-06-15,14:00,20:00,Group Stage,group,87523,83147,49888,7.0,Verify teams from FIFA
-m007,atl,Atlanta,Mercedes-Benz Stadium,2026-06-15,17:00,22:00,Group Stage,group,71000,67450,18886,6.8,Verify teams from FIFA
-m008,nyc,New York / NJ,MetLife Stadium,2026-06-16,12:00,16:00,Group Stage,group,82500,78375,35269,8.2,Verify teams from FIFA
-m009,sea,Seattle,Lumen Field,2026-06-16,17:00,00:00+1,Group Stage,group,72000,68400,25992,7.0,Verify teams from FIFA
-m010,tor,Toronto,BMO Field,2026-06-17,14:00,18:00,Group Stage,group,45736,43449,31283,6.1,Verify teams from FIFA
-m011,van,Vancouver,BC Place,2026-06-17,17:00,00:00+1,Group Stage,group,54500,51775,41420,7.5,Verify teams from FIFA
-m012,cdmx,Mexico City,Estadio Azteca,2026-06-18,17:00,23:00,Group Stage,group,87523,83147,49888,7.1,Verify teams from FIFA
-m013,atl,Atlanta,Mercedes-Benz Stadium,2026-06-19,17:00,22:00,Group Stage,group,71000,67450,18886,6.5,Verify teams from FIFA
-m014,nyc,New York / NJ,MetLife Stadium,2026-06-20,12:00,16:00,Group Stage,group,82500,78375,35269,8.4,Verify teams from FIFA
-m015,sea,Seattle,Lumen Field,2026-06-20,17:00,00:00+1,Group Stage,group,72000,68400,25992,7.2,Verify teams from FIFA
-m016,tor,Toronto,BMO Field,2026-06-21,14:00,18:00,Group Stage,group,45736,43449,31283,6.4,Verify teams from FIFA
-m017,van,Vancouver,BC Place,2026-06-21,17:00,00:00+1,Group Stage,group,54500,51775,41420,7.7,Verify teams from FIFA
-m018,cdmx,Mexico City,Estadio Azteca,2026-06-22,14:00,20:00,Group Stage,group,87523,83147,49888,6.9,Verify teams from FIFA
-m019,atl,Atlanta,Mercedes-Benz Stadium,2026-06-23,17:00,22:00,Group Stage,group,71000,67450,18886,6.6,Verify teams from FIFA
-m020,nyc,New York / NJ,MetLife Stadium,2026-06-24,12:00,16:00,Group Stage,group,82500,78375,35269,8.3,Verify teams from FIFA
-m021,sea,Seattle,Lumen Field,2026-06-24,19:00,02:00+1,Group Stage,group,72000,68400,25992,7.3,Verify teams from FIFA
-m022,cdmx,Mexico City,Estadio Azteca,2026-06-26,17:00,23:00,Group Stage,group,87523,83147,49888,7.0,Verify teams from FIFA
-m023,atl,Atlanta,Mercedes-Benz Stadium,2026-06-27,17:00,22:00,Group Stage,group,71000,67450,18886,6.7,Verify teams from FIFA
-m024,nyc,New York / NJ,MetLife Stadium,2026-06-28,15:00,19:00,Group Stage,group,82500,78375,35269,8.6,Verify teams from FIFA
-m025,tor,Toronto,BMO Field,2026-06-25,14:00,18:00,Group Stage,group,45736,43449,31283,6.2,Verify teams from FIFA
-m026,van,Vancouver,BC Place,2026-06-25,17:00,00:00+1,Group Stage,group,54500,51775,41420,7.9,Verify teams from FIFA
-m027,sea,Seattle,Lumen Field,2026-07-03,15:00,22:00,Round of 32,knockout,72000,68400,25992,7.8,Verify teams from FIFA
-m028,tor,Toronto,BMO Field,2026-07-04,14:00,18:00,Round of 32,knockout,45736,43449,31283,6.9,Verify teams from FIFA
-m029,van,Vancouver,BC Place,2026-07-04,17:00,00:00+1,Round of 32,knockout,54500,51775,41420,8.3,Verify teams from FIFA
-m030,atl,Atlanta,Mercedes-Benz Stadium,2026-07-05,17:00,22:00,Round of 32,knockout,71000,67450,18886,7.2,Verify teams from FIFA
-m031,nyc,New York / NJ,MetLife Stadium,2026-07-05,15:00,19:00,Round of 32,knockout,82500,78375,35269,8.8,Verify teams from FIFA
-m032,cdmx,Mexico City,Estadio Azteca,2026-07-06,17:00,23:00,Round of 32,knockout,87523,83147,49888,7.5,Verify teams from FIFA
-m033,nyc,New York / NJ,MetLife Stadium,2026-07-10,15:00,19:00,Quarter-final,knockout,82500,78375,35269,9.0,Verify teams from FIFA
-m034,nyc,New York / NJ,MetLife Stadium,2026-07-15,15:00,19:00,Semi-final,knockout,82500,78375,35269,9.2,Verify teams from FIFA
-m035,nyc,New York / NJ,MetLife Stadium,2026-07-19,15:00,19:00,Final,knockout,82500,78375,35269,9.5,FINAL – MetLife Stadium
+match_id,city_id,city,stadium,date,kickoff_local,kickoff_utc,round,phase,capacity,expected_attendance,transit_demand_est,strain_rating,notes,teams
+m001,cdmx,Mexico City,Estadio Azteca,2026-06-11,13:00,18:00,Group A,group,87523,83147,49888,7.2,Opening match,Mexico vs South Africa
+m002,tor,Toronto,BMO Field,2026-06-12,15:00,19:00,Group B,group,45736,43449,31283,6.3,,Canada vs Bosnia & Herzegovina
+m003,van,Vancouver,BC Place,2026-06-12,21:00,04:00+1,Group D,group,54500,51775,41420,7.8,,Australia vs Turkey
+m004,nyc,New York / NJ,MetLife Stadium,2026-06-13,18:00,22:00,Group C,group,82500,78375,35269,8.3,,Brazil vs Morocco
+m005,atl,Atlanta,Mercedes-Benz Stadium,2026-06-15,12:00,16:00,Group H,group,71000,67450,18886,6.5,,Spain vs Cabo Verde
+m006,sea,Seattle,Lumen Field,2026-06-15,15:00,22:00,Group G,group,72000,68400,25992,7.1,,Belgium vs Egypt
+m007,nyc,New York / NJ,MetLife Stadium,2026-06-16,15:00,19:00,Group I,group,82500,78375,35269,8.2,,France vs Senegal
+m008,cdmx,Mexico City,Estadio Azteca,2026-06-17,17:00,22:00,Group A,group,87523,83147,49888,7.0,,TBD vs TBD
+m009,tor,Toronto,BMO Field,2026-06-17,15:00,19:00,Group Match,group,45736,43449,31283,6.1,,TBD vs TBD
+m010,atl,Atlanta,Mercedes-Benz Stadium,2026-06-18,12:00,16:00,Group A,group,71000,67450,18886,6.4,,South Africa vs TBD
+m011,van,Vancouver,BC Place,2026-06-18,15:00,22:00,Group B,group,54500,51775,41420,7.6,,Canada vs Qatar
+m012,sea,Seattle,Lumen Field,2026-06-19,15:00,22:00,Group D,group,72000,68400,25992,7.2,,USA vs Australia
+m013,tor,Toronto,BMO Field,2026-06-20,15:00,19:00,Group E,group,45736,43449,31283,6.2,,Germany vs Cote d'Ivoire
+m014,van,Vancouver,BC Place,2026-06-21,18:00,01:00+1,Group G,group,54500,51775,41420,7.7,,New Zealand vs Egypt
+m015,atl,Atlanta,Mercedes-Benz Stadium,2026-06-21,12:00,16:00,Group H,group,71000,67450,18886,6.6,,Spain vs Saudi Arabia
+m016,nyc,New York / NJ,MetLife Stadium,2026-06-22,20:00,00:00+1,Group I,group,82500,78375,35269,8.4,,Norway vs Senegal
+m017,tor,Toronto,BMO Field,2026-06-23,15:00,19:00,Group Match,group,45736,43449,31283,6.0,,TBD vs TBD
+m018,cdmx,Mexico City,Estadio Azteca,2026-06-24,21:00,02:00+1,Group A,group,87523,83147,49888,7.1,,Czechia vs Mexico
+m019,van,Vancouver,BC Place,2026-06-24,12:00,19:00,Group B,group,54500,51775,41420,7.5,,Canada vs Switzerland
+m020,nyc,New York / NJ,MetLife Stadium,2026-06-25,16:00,20:00,Group E,group,82500,78375,35269,8.3,,Ecuador vs Germany
+m021,sea,Seattle,Lumen Field,2026-06-24,17:00,00:00+1,Group B,group,72000,68400,25992,7.0,,Qatar vs Bosnia & Herzegovina
+m022,atl,Atlanta,Mercedes-Benz Stadium,2026-06-24,18:00,22:00,Group C,group,71000,67450,18886,6.7,,Morocco vs Haiti
+m023,nyc,New York / NJ,MetLife Stadium,2026-06-27,17:00,21:00,Group L,group,82500,78375,35269,8.5,,Panama vs England
+m024,van,Vancouver,BC Place,2026-06-26,20:00,03:00+1,Group G,group,54500,51775,41420,7.9,,New Zealand vs Belgium
+m025,sea,Seattle,Lumen Field,2026-06-26,20:00,03:00+1,Group G,group,72000,68400,25992,7.3,,Egypt vs Iran
+m026,tor,Toronto,BMO Field,2026-06-26,15:00,19:00,Group Match,group,45736,43449,31283,6.3,,TBD vs TBD
+m027,atl,Atlanta,Mercedes-Benz Stadium,2026-06-27,19:30,23:30,Group K,group,71000,67450,18886,6.8,,Uzbekistan vs TBD
+m028,nyc,New York / NJ,MetLife Stadium,2026-06-30,17:00,21:00,Round of 32,knockout,82500,78375,35269,8.8,,TBD vs TBD
+m029,cdmx,Mexico City,Estadio Azteca,2026-06-30,21:00,02:00+1,Round of 32,knockout,87523,83147,49888,7.5,,TBD vs TBD
+m030,sea,Seattle,Lumen Field,2026-07-01,17:00,00:00+1,Round of 32,knockout,72000,68400,25992,7.8,,TBD vs TBD
+m031,atl,Atlanta,Mercedes-Benz Stadium,2026-07-01,17:00,21:00,Round of 32,knockout,71000,67450,18886,7.2,,TBD vs TBD
+m032,van,Vancouver,BC Place,2026-07-02,20:00,03:00+1,Round of 32,knockout,54500,51775,41420,8.3,,TBD vs TBD
+m033,tor,Toronto,BMO Field,2026-07-02,15:00,19:00,Round of 32,knockout,45736,43449,31283,6.9,,TBD vs TBD
+m034,nyc,New York / NJ,MetLife Stadium,2026-07-05,16:00,20:00,Round of 16,knockout,82500,78375,35269,9.0,,TBD vs TBD
+m035,cdmx,Mexico City,Estadio Azteca,2026-07-05,17:00,22:00,Round of 16,knockout,87523,83147,49888,7.8,,TBD vs TBD
+m036,sea,Seattle,Lumen Field,2026-07-06,17:00,00:00+1,Round of 16,knockout,72000,68400,25992,8.0,,TBD vs TBD
+m037,van,Vancouver,BC Place,2026-07-07,13:00,20:00,Round of 16,knockout,54500,51775,41420,8.6,,TBD vs TBD
+m038,atl,Atlanta,Mercedes-Benz Stadium,2026-07-07,17:00,21:00,Round of 16,knockout,71000,67450,18886,7.5,,TBD vs TBD
+m039,atl,Atlanta,Mercedes-Benz Stadium,2026-07-15,17:00,21:00,Semi-final,knockout,71000,67450,18886,9.0,,TBD vs TBD
+m040,nyc,New York / NJ,MetLife Stadium,2026-07-19,15:00,19:00,Final,knockout,82500,78375,35269,9.5,FINAL - MetLife Stadium,TBD vs TBD

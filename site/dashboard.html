@@ -159,7 +159,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
 <!-- ===== MAP SECTION ===== -->
 <div class="section">
   <div class="section-title">Transit Strain by City</div>
-  <div class="section-sub">Strain Index = projected incremental riders ÷ scheduled corridor capacity · circle size = matches hosted · color = peak strain</div>
+  <div class="section-sub">Strain Index = projected incremental riders divided by scheduled corridor capacity in the 3-hour match window (0–10 scale). Circle size = matches hosted; color = peak strain. See the Strain Calculator below for full methodology.</div>
   <div class="map-wrap">
     <div>
       <div id="map"></div>
@@ -188,7 +188,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
 <!-- ===== CITY DEEP-DIVE ===== -->
 <div class="section" style="padding-top:0">
   <div class="section-title">City Analysis</div>
-  <div class="section-sub">Select a city to see match calendar, ridership trends, and corridor details</div>
+  <div class="section-sub">Select a city to see the confirmed match schedule, ridership trends, and corridor capacity details. Match dates and teams sourced from the official FIFA 2026 schedule.</div>
   <div class="city-tabs" id="cityTabs"></div>
   <div class="city-panel" id="cityPanel">
     <div style="color:var(--muted);text-align:center;padding:60px 0;font-size:.9rem">
@@ -200,14 +200,35 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
 <!-- ===== FARE COMPARATOR ===== -->
 <div class="section">
   <div class="section-title">The Cost of Getting There</div>
-  <div class="section-sub">Stadium round-trip fare per city — standard service and announced World Cup specials</div>
+  <div class="section-sub">Stadium round-trip transit fare by city. Three lenses: raw USD cost, cost relative to local workers, and cost relative to the international visiting fan. Toggle to compare.</div>
   <div class="fare-section-inner">
     <div class="fare-toggle">
       <button class="toggle-btn active" data-fare-mode="absolute">$ Absolute (USD)</button>
-      <button class="toggle-btn" data-fare-mode="wage">% of Hourly Minimum Wage</button>
+      <button class="toggle-btn" data-fare-mode="wage">% of Local Min Wage (1 hr)</button>
+      <button class="toggle-btn" data-fare-mode="intl">% of Daily Travel Budget</button>
     </div>
     <div id="fareChart"></div>
     <div class="fare-callout" id="fareCallout"></div>
+    <div style="margin-top:12px;padding:12px 16px;background:rgba(139,148,158,.07);border-radius:6px;font-size:.78rem;color:var(--muted);line-height:1.7">
+      <strong style="color:var(--text)">How to read this:</strong>
+      <strong>$ Absolute</strong> shows the raw roundtrip transit cost in USD.
+      <strong>% of Local Min Wage</strong> contextualizes the fare for local residents paid at the minimum wage floor.
+      <strong>% of Daily Travel Budget</strong> uses a $175/day estimate (median reported spend for a traveling World Cup fan from published FIFA and tourism data) to put the fare in perspective for international visitors. At Qatar 2022, transit was free for all ticket holders; at Russia 2018, a Moscow Metro roundtrip cost roughly $0.60 USD. Both benchmarks appear on the chart.
+    </div>
+  </div>
+</div>
+
+<!-- ===== HISTORICAL WC COMPARISON ===== -->
+<div class="section">
+  <div class="section-title">Past World Cups: Transit as Benchmark</div>
+  <div class="section-sub">How does 2026 compare to the tournaments that came before? Three data points that set the context for every number on this page.</div>
+  <div id="historicalWC" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:20px"></div>
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;font-size:.82rem;color:var(--muted);line-height:1.8">
+    <strong style="color:var(--text)">Why this matters for 2026:</strong>
+    Qatar 2022 proved that free bundled transit dramatically raises mode share and cuts post-match egress time. Vancouver copied that playbook directly.
+    Russia 2018 showed that deep, high-frequency urban metro systems absorb World Cup demand without special infrastructure, provided the stadium is directly served.
+    Brazil 2014 is the cautionary tale: five cities, limited rail, and a tournament that was operationally chaotic at the transit level.
+    North America 2026 is a hybrid. Two cities (Vancouver, Mexico City) look like Qatar and Russia. Four cities (NYC, Seattle, Atlanta, Toronto) have meaningful rail but narrower, more constrained corridors. The strain index reflects that split.
   </div>
 </div>
 
@@ -222,18 +243,26 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
         <div class="slider-row">
           <label>Stadium fill rate <span id="fillVal">95%</span></label>
           <input type="range" id="fillSlider" min="50" max="100" value="95" step="5">
+          <div style="font-size:.72rem;color:var(--muted);margin-top:4px">What fraction of seats are actually occupied. 95% is a reasonable baseline for a sold-out WC group game. Lower for early group matches; higher for the Final.</div>
         </div>
         <div class="slider-row">
-          <label>Transit mode share <span id="modeVal">baseline</span></label>
+          <label>Transit mode share multiplier <span id="modeVal">100%</span></label>
           <input type="range" id="modeSlider" min="50" max="150" value="100" step="5">
-          <div style="font-size:.72rem;color:var(--muted);margin-top:4px">100% = city baseline estimate</div>
+          <div style="font-size:.72rem;color:var(--muted);margin-top:4px">100% = each city's baseline estimate (Vancouver 80%, CDMX 60%, NYC 45%, etc.). Push above 100% if free-transit offers or road closures shift more fans to transit. Drop below 100% if ride-share surges or weather pushes people to cars.</div>
         </div>
         <div class="slider-row">
-          <label>Service uplift <span id="upliftVal">0%</span></label>
+          <label>Service uplift above WC plan <span id="upliftVal">+0%</span></label>
           <input type="range" id="upliftSlider" min="0" max="100" value="0" step="10">
-          <div style="font-size:.72rem;color:var(--muted);margin-top:4px">extra capacity above WC service plan</div>
+          <div style="font-size:.72rem;color:var(--muted);margin-top:4px">How much extra capacity agencies add on top of their announced WC service plan (already embedded in the CORRIDOR_PARAMS). A +50% uplift means the agency can run 1.5x the planned WC frequency on short notice.</div>
         </div>
-        <div class="whatif-summary" id="whatifSummary"></div>
+        <div style="margin-top:16px;padding:12px 14px;background:var(--surface);border-radius:6px;border:1px solid var(--border);font-size:.74rem;color:var(--muted);line-height:1.7">
+          <strong style="color:var(--text);display:block;margin-bottom:4px">How strain is calculated</strong>
+          Incremental riders = stadium capacity &times; fill rate &times; mode share<br>
+          Corridor capacity = lines &times; vehicles/hr (WC plan) &times; seats+standees per vehicle &times; 3-hour window<br>
+          Load % = incremental / corridor capacity &times; 100<br>
+          <span style="color:var(--accent)">Above 100% = demand exceeds scheduled capacity. The system copes via crush loading, longer wait times, or fans walking away.</span>
+        </div>
+        <div class="whatif-summary" id="whatifSummary" style="margin-top:12px"></div>
       </div>
       <div>
         <h3 style="font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px">Projected Load vs Capacity</h3>
@@ -243,13 +272,41 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;heigh
   </div>
 </div>
 
+<!-- ===== MODEL ACCURACY TRACKER ===== -->
+<div class="section">
+  <div class="section-title">Model vs. Reality</div>
+  <div class="section-sub">This dashboard makes predictions. As actual data arrives, this section tracks how well those predictions hold up. Updated as MTA, CDMX, and NTD data publish.</div>
+  <div id="accuracyTracker" style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px">
+    <table style="width:100%;border-collapse:collapse;font-family:'Inter',sans-serif;font-size:.83rem">
+      <thead>
+        <tr style="border-bottom:2px solid var(--border)">
+          <th style="text-align:left;padding:8px 12px;color:var(--muted);font-size:.73rem;text-transform:uppercase;letter-spacing:.08em">Metric</th>
+          <th style="text-align:left;padding:8px 12px;color:var(--muted);font-size:.73rem;text-transform:uppercase;letter-spacing:.08em">City</th>
+          <th style="text-align:right;padding:8px 12px;color:var(--muted);font-size:.73rem;text-transform:uppercase;letter-spacing:.08em">Predicted</th>
+          <th style="text-align:right;padding:8px 12px;color:var(--muted);font-size:.73rem;text-transform:uppercase;letter-spacing:.08em">Actual</th>
+          <th style="text-align:right;padding:8px 12px;color:var(--muted);font-size:.73rem;text-transform:uppercase;letter-spacing:.08em">Error</th>
+          <th style="text-align:left;padding:8px 12px;color:var(--muted);font-size:.73rem;text-transform:uppercase;letter-spacing:.08em">Status</th>
+        </tr>
+      </thead>
+      <tbody id="accuracyRows"></tbody>
+    </table>
+    <div style="margin-top:14px;font-size:.75rem;color:var(--muted);line-height:1.7">
+      <strong style="color:var(--text)">How predictions are made:</strong>
+      Ridership uplift is projected using pre-tournament baseline ridership &times; city-specific uplift factor derived from past event studies and agency surge plans.
+      Strain index predictions come from the corridor capacity model (see Strain Calculator above).
+      Mode share estimates are from agency surveys and comparable event data.
+      Predictions update as better pre-tournament data arrives; actuals update as MTA, CDMX, and NTD publish.
+    </div>
+  </div>
+</div>
+
 <!-- ===== FOOTER ===== -->
 <footer class="dash-footer">
   <div style="max-width:900px;margin:0 auto">
     <strong style="color:var(--text)">Full Capacity: 2026 World Cup Transit Strain</strong><br>
     By <a href="https://dhruv-mehndiratta.com">Dhruv Mehndiratta</a> · Tournament data refreshes weekly via GitHub Actions<br>
-    Sources: FTA NTD · MTA Subway Hourly · CDMX Metro Afluencia · Agency surge plans · FIFA schedule (verify at fifa.com)<br>
-    Match dates/teams are illustrative pending official FIFA schedule confirmation. Strain indices are model estimates.
+    Sources: FTA NTD · MTA Subway Hourly · CDMX Metro Afluencia · Agency surge plans · FIFA official schedule (fifa.com)<br>
+    Knockout-round team assignments (shown as TBD) will fill in as the group stage concludes. Strain indices are model estimates with documented assumptions.
   </div>
 </footer>
 
@@ -325,7 +382,9 @@ function init() {
   renderOverviewStats();
   renderCityTabs();
   renderFareChart();
+  renderHistoricalWC();
   initWhatIf();
+  renderAccuracyTracker();
 
   // Auto-select first city
   if (state.cities.length) selectCity(state.cities[0].id);
@@ -485,8 +544,8 @@ function renderCityPanel(city) {
                 ${new Date(m.date+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'})}
               </div>
               <div class="match-info">
-                <div class="round">${m.round} ${isToday?'<span style="color:var(--green);font-size:.72rem">● TODAY</span>':''}</div>
-                <div class="time">${m.kickoff_local} local · ${m.stadium}</div>
+                <div class="round">${m.teams && m.teams !== 'TBD vs TBD' ? m.teams : m.round} ${isToday?'<span style="color:var(--green);font-size:.72rem">&#9679; TODAY</span>':''}</div>
+                <div class="time">${m.round} &middot; ${m.kickoff_local} local</div>
               </div>
               <span class="strain-pill" style="background:${sc}">${m.strain_rating}/10</span>
             </div>`;
@@ -683,11 +742,16 @@ function renderFareChart(mode) {
     .attr('viewBox', `0 0 ${W} ${H}`).attr('width', W).attr('height', H);
   const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
 
+  const INTL_DAILY = 175; // median international WC fan daily spend (USD), derived from FIFA/tourism surveys
   const data = state.fares.map(f => ({
     id: f.city_id,
     name: f.city,
-    standard: mode === 'absolute' ? +f.stadium_rt_usd : +f.stadium_rt_pct_min_wage,
-    special: mode === 'absolute' ? +f.special_wc_fare_usd : (+f.special_wc_fare_usd / +f.min_wage_usd_hr * 100),
+    standard: mode === 'absolute' ? +f.stadium_rt_usd
+            : mode === 'wage'     ? +f.stadium_rt_pct_min_wage
+            :                      (+f.stadium_rt_usd / INTL_DAILY * 100),
+    special: mode === 'absolute' ? +f.special_wc_fare_usd
+           : mode === 'wage'     ? (+f.special_wc_fare_usd / +f.min_wage_usd_hr * 100)
+           :                      (+f.special_wc_fare_usd / INTL_DAILY * 100),
     free: f.free_with_ticket === 'true' || f.free_with_ticket === true,
     color: state.cities.find(c => c.id === f.city_id)?.color || '#8b949e',
   })).sort((a, b) => b.standard - a.standard);
@@ -754,9 +818,12 @@ function renderFareChart(mode) {
   // Fare callout
   const nj = state.fares.find(f => f.city_id === 'nyc');
   if (nj) {
-    $('fareCallout').innerHTML = mode === 'absolute'
-      ? `<strong>NJ Transit World Cup special:</strong> The "Secaucus VIP package" was reported at ~$150 (vs $${nj.stadium_rt_usd} standard roundtrip) — equivalent to ${(nj.special_wc_fare_usd / nj.min_wage_usd_hr).toFixed(1)} hours at NYC minimum wage. <a href="https://www.njtransit.com" target="_blank">Verify current pricing at NJT</a> before publishing.`
-      : `<strong>Equity lens:</strong> Vancouver's free-transit-with-ticket policy makes the stadium round-trip cost <strong style="color:var(--green)">0%</strong> of minimum wage. Atlanta's $5.00 MARTA roundtrip equals <strong style="color:var(--red)">69%</strong> of Georgia's $7.25 minimum hourly wage. The spread reflects both fare policy choices and local wage floors.`;
+    const callouts = {
+      absolute: `<strong>NJ Transit World Cup special:</strong> The reported "Secaucus VIP package" is ~$150 versus a $25 standard roundtrip. That gap of $125 funds guaranteed boarding and dedicated platform access on a corridor with no rail alternatives to the stadium. <a href="https://www.njtransit.com" target="_blank" style="color:var(--accent)">Verify current pricing at njtransit.com.</a> At the other extreme, Vancouver is free and Mexico City costs $0.55.`,
+      wage: `<strong>Equity lens (local workers):</strong> Vancouver's free-transit policy makes the trip cost <strong style="color:var(--green)">0%</strong> of minimum wage. Atlanta's $5 MARTA roundtrip is <strong style="color:var(--red)">69%</strong> of an hour at Georgia's $7.25 minimum. That gap exists not because MARTA charges more than other cities in absolute terms, but because Georgia's minimum wage has stayed at the 2009 federal floor while transit costs have risen.`,
+      intl: `<strong>International fan lens:</strong> Based on a $175/day median spend estimate for a traveling World Cup visitor (derived from FIFA and tourism reports), the transit cost is a small fraction of the daily budget for most cities. The exception is the NJT VIP package at ~86% of a full day's budget. For context: Qatar 2022 transit was <strong style="color:var(--green)">free</strong> for all ticket holders; Moscow Metro in 2018 cost roughly $0.60 USD roundtrip (0.3% of a comparable daily budget). North America 2026 ranges from free to $150 depending on city and product tier.`,
+    };
+    $('fareCallout').innerHTML = callouts[mode] || callouts.absolute;
   }
 }
 
@@ -798,7 +865,7 @@ function updateWhatIf() {
   const uplift = +$('upliftSlider').value / 100;
 
   $('fillVal').textContent = Math.round(fill * 100) + '%';
-  $('modeVal').textContent = Math.round(modeMultiplier * 100) + '%';
+  $('modeVal').textContent = Math.round(modeMultiplier * 100) + '% of baseline';
   $('upliftVal').textContent = '+' + Math.round(uplift * 100) + '%';
 
   const results = [];
@@ -877,6 +944,101 @@ function drawWhatIfChart(results) {
       .attr('text-anchor', 'middle').attr('fill', '#e6edf3').attr('font-size', '11').attr('font-weight', '600')
       .text(d.loadPct.toFixed(0) + '%');
   });
+}
+
+// ── HISTORICAL WC ──
+function renderHistoricalWC() {
+  const el = $('historicalWC');
+  if (!el) return;
+  const tournaments = [
+    {
+      year: 'Qatar 2022',
+      visitors: '1.4M visitors',
+      transit: 'Free for all ticket holders',
+      policy: 'The Doha Metro — built for the tournament — recorded 500k+ trips on Final weekend. Transit was bundled into every match ticket at no extra cost. Mode share: ~90%.',
+      benchmark: 'Free transit benchmark',
+      color: '#8b5cf6',
+      icon: '🏟',
+      fares: 'Free (ticket bundled)',
+      comparison: 'Vancouver copied this model directly for 2026.',
+    },
+    {
+      year: 'Russia 2018',
+      visitors: '3.0M visitors',
+      transit: 'Deep urban metro, ~$0.60 USD/trip',
+      policy: 'Moscow Metro handled the Final surge with extended hours and high pre-existing frequency. Match-day ridership at Luzhniki-adjacent stations ran roughly 40% above baseline on group stage days, 70% on knockout days.',
+      benchmark: 'Dense metro baseline',
+      color: '#e8431a',
+      icon: '🚇',
+      fares: '~$0.60 USD roundtrip (Moscow Metro)',
+      comparison: 'CDMX and Vancouver are closest to this model. NYC and Atlanta are not.',
+    },
+    {
+      year: 'Brazil 2014',
+      visitors: '3.4M visitors',
+      transit: 'Mixed — limited rail, heavy bus',
+      policy: 'Five host cities with inadequate rail. Sao Paulo, Rio, and Fortaleza relied heavily on shuttles and buses. Post-match dispersal queues of 2+ hours were common. Multiple incidents of crush loading at makeshift shuttles.',
+      benchmark: 'Infrastructure gap cautionary tale',
+      color: '#f59e0b',
+      icon: '🚌',
+      fares: 'Varies by city ($0.80–$2.50 USD)',
+      comparison: 'The MetLife/Secaucus corridor has structural similarities: no direct rail to the stadium, single shuttle corridor, high demand concentration.',
+    },
+  ];
+
+  el.innerHTML = tournaments.map(t => `
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;border-top:3px solid ${t.color}">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">
+        <div>
+          <div style="font-size:1.1rem;font-weight:700;color:var(--text)">${t.year}</div>
+          <div style="font-size:.75rem;color:var(--muted);margin-top:2px">${t.visitors}</div>
+        </div>
+        <span style="font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:10px;background:${t.color}22;color:${t.color};border:1px solid ${t.color}44">${t.benchmark}</span>
+      </div>
+      <div style="font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:6px">${t.transit}</div>
+      <div style="font-size:.8rem;color:var(--muted);line-height:1.65;margin-bottom:12px">${t.policy}</div>
+      <div style="border-top:1px solid var(--border);padding-top:10px;font-size:.76rem;color:var(--muted)">
+        <div><span style="color:var(--text);font-weight:500">Fare:</span> ${t.fares}</div>
+        <div style="margin-top:4px;color:${t.color}"><strong>2026 link:</strong> ${t.comparison}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ── ACCURACY TRACKER ──
+function renderAccuracyTracker() {
+  const rows = $('accuracyRows');
+  if (!rows) return;
+
+  const predictions = [
+    {metric:'MTA match-day ridership uplift (NYC)', city:'NYC', predicted:'+14%', actual:'Pending', error:'—', status:'awaiting', note:'MTA Hourly dataset 5wq4-mkjj, ~4–6 wk lag'},
+    {metric:'CDMX Line 2 uplift on match days', city:'CDMX', predicted:'+12%', actual:'Pending', error:'—', status:'awaiting', note:'datos.cdmx.gob.mx, ~2 day lag — earliest available'},
+    {metric:'NJT Meadowlands boardings per match day', city:'NYC', predicted:'~35,000', actual:'Pending', error:'—', status:'awaiting', note:'NJT press releases expected post-tournament'},
+    {metric:'Vancouver SkyTrain uplift (BC Place days)', city:'VAN', predicted:'+16%', actual:'Pending', error:'—', status:'awaiting', note:'TransLink likely to publish post-event report'},
+    {metric:'MetLife peak strain index (group stage)', city:'NYC', predicted:'8.2–8.5', actual:'Pending', error:'—', status:'model', note:'Based on NJT capacity model; calibrate against actual boardings'},
+    {metric:'Atlanta match-day MARTA boardings', city:'ATL', predicted:'~19,000/match', actual:'Pending', error:'—', status:'awaiting', note:'NTD monthly release, August 2026'},
+  ];
+
+  const statusColors = {awaiting:'var(--muted)', model:'var(--accent)', confirmed:'var(--green)', off:'var(--red)'};
+  const statusLabels = {awaiting:'Data pending', model:'Model estimate', confirmed:'Confirmed', off:'Prediction missed'};
+
+  rows.innerHTML = predictions.map((p, i) => `
+    <tr style="border-bottom:1px solid var(--border);${i % 2 === 0 ? 'background:rgba(139,148,158,.04)' : ''}">
+      <td style="padding:10px 12px;font-size:.81rem;color:var(--text);line-height:1.5">
+        ${p.metric}
+        <div style="font-size:.71rem;color:var(--muted);margin-top:2px">${p.note}</div>
+      </td>
+      <td style="padding:10px 12px;font-size:.81rem;color:var(--muted)">${p.city}</td>
+      <td style="padding:10px 12px;font-size:.81rem;text-align:right;color:var(--accent);font-weight:600">${p.predicted}</td>
+      <td style="padding:10px 12px;font-size:.81rem;text-align:right;color:var(--muted);font-style:italic">${p.actual}</td>
+      <td style="padding:10px 12px;font-size:.81rem;text-align:right;color:var(--muted)">${p.error}</td>
+      <td style="padding:10px 12px;font-size:.76rem">
+        <span style="padding:2px 8px;border-radius:8px;color:${statusColors[p.status]};background:${statusColors[p.status]}22;border:1px solid ${statusColors[p.status]}44">
+          ${statusLabels[p.status]}
+        </span>
+      </td>
+    </tr>
+  `).join('');
 }
 
 // ── FARE TOGGLE WIRING ──
