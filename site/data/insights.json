@@ -3,15 +3,65 @@
     "updated": "2026-06-12"
   },
   "insights": [
-    {"stat": "$21.6M", "label": "TransLink WC investment (CAD)", "detail": "Funds ~600 extra bus trips per day and enhanced SkyTrain headways across Metro Vancouver", "city": "van"},
-    {"stat": "3.8M", "label": "Projected WC boardings, TTC Toronto", "detail": "Largest sports-transit mobilisation for the city since the 2015 Pan Am Games", "city": "tor"},
-    {"stat": "$150", "label": "NJ Transit Secaucus VIP package", "detail": "vs. $25 standard roundtrip -- 8.8 hours at NYC's $17/hr minimum wage just to reach the stadium", "city": "nyc"},
-    {"stat": "$0.28", "label": "Mexico City Metro base fare (USD)", "detail": "Cheapest stadium access of all 6 cities -- less than a single MTA swipe in New York", "city": "cdmx"},
-    {"stat": "9.5/10", "label": "MetLife strain index -- the Final", "detail": "July 19 is the single highest-strain transit event in this dataset. One rail corridor, 82,500 fans.", "city": "nyc"},
-    {"stat": "80%", "label": "Vancouver transit mode share", "detail": "BC Place is a 2-minute walk from Stadium-Chinatown SkyTrain -- best stadium-transit integration in North America", "city": "van"},
-    {"stat": "Free", "label": "Transit with match ticket in Vancouver", "detail": "Mirrors Qatar 2022 policy. TransLink bundles all-zone SkyTrain and bus access into every FIFA match ticket.", "city": "van"},
-    {"stat": "69%", "label": "Atlanta stadium trip as % of local min wage", "detail": "MARTA $5 roundtrip = 69% of Georgia's $7.25 minimum hourly wage -- highest affordability burden of the US cities", "city": "atl"},
-    {"stat": "87,523", "label": "Estadio Azteca capacity", "detail": "Largest venue in the tournament. 60% of attendees expected to arrive via Metro Line 2 direct from the city.", "city": "cdmx"},
-    {"stat": "8 matches", "label": "MetLife Stadium hosts -- tied for most", "detail": "5 group stage + Round of 32 + Round of 16 + the Final on July 19. Tied with Atlanta, which hosts the Semifinal.", "city": "nyc"}
+    {
+      "stat": "$21.6M",
+      "label": "TransLink WC investment",
+      "detail": "~600 extra bus trips per day across Metro Vancouver",
+      "city": "van"
+    },
+    {
+      "stat": "3.8M",
+      "label": "projected WC boardings, TTC Toronto",
+      "detail": "City's largest sports-transit mobilisation since the 2015 Pan Am Games",
+      "city": "tor"
+    },
+    {
+      "stat": "$150",
+      "label": "NJ Transit Secaucus VIP package",
+      "detail": "vs. $2.90 base MTA fare \u2014 equivalent to 8.8 hours of NYC minimum wage",
+      "city": "nyc"
+    },
+    {
+      "stat": "$0.28",
+      "label": "Mexico City Metro base fare (USD)",
+      "detail": "Cheapest stadium access of all 6 cities \u2014 38% of one hour's local minimum wage",
+      "city": "cdmx"
+    },
+    {
+      "stat": "9.5/10",
+      "label": "MetLife strain index for the Final",
+      "detail": "July 19 Final is the single highest-strain transit event of the tournament",
+      "city": "nyc"
+    },
+    {
+      "stat": "80%",
+      "label": "Vancouver transit mode share",
+      "detail": "BC Place served by SkyTrain walking distance \u2014 best integration in North America",
+      "city": "van"
+    },
+    {
+      "stat": "Free",
+      "label": "Transit with match ticket in Vancouver",
+      "detail": "TransLink includes transit fare with all FIFA 2026 match tickets",
+      "city": "van"
+    },
+    {
+      "stat": "69%",
+      "label": "Atlanta stadium trip as % of min wage",
+      "detail": "MARTA $5 roundtrip = 69% of Georgia's $7.25 minimum hourly wage",
+      "city": "atl"
+    },
+    {
+      "stat": "87,523",
+      "label": "Estadio Azteca capacity",
+      "detail": "Largest WC venue \u2014 60% expected to arrive via Metro L\u00ednea 2",
+      "city": "cdmx"
+    },
+    {
+      "stat": "9 matches",
+      "label": "MetLife Stadium hosts",
+      "detail": "Most of any venue: group stage through the Final on July 19",
+      "city": "nyc"
+    }
   ]
 }
