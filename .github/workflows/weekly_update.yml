@@ -47,6 +47,23 @@ jobs:
         env:
           SOCRATA_APP_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
 
+      - name: Validate exported JSON is browser-parseable (no NaN/Infinity)
+        run: |
+          python - <<'EOF'
+          import json, glob, sys
+          def reject(const):
+              raise ValueError(f"non-JSON constant {const!r} (JS JSON.parse would reject this)")
+          bad = False
+          for f in sorted(glob.glob("site/data/*.json")):
+              try:
+                  json.load(open(f, encoding="utf-8"), parse_constant=reject)
+                  print(f"OK   {f}")
+              except Exception as e:
+                  print(f"FAIL {f} -> {e}")
+                  bad = True
+          sys.exit(1 if bad else 0)
+          EOF
+
       - name: Check for changes
         id: diff
         run: git diff --quiet site/data/ || echo "changed=true" >> $GITHUB_OUTPUT

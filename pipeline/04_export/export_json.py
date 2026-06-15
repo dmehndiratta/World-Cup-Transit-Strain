@@ -3,7 +3,7 @@ Export pipeline: reads all processed/interim data → writes site/data/*.json.
 Run after all fetch + clean + analysis scripts.
 """
 from pathlib import Path
-import json, pandas as pd, numpy as np
+import json, math, pandas as pd, numpy as np
 from datetime import date, datetime
 
 MANUAL_DIR = Path(__file__).parents[2] / "data" / "manual"
@@ -121,7 +121,6 @@ def export_matches() -> None:
 
 def export_fares() -> None:
     df = pd.read_csv(MANUAL_DIR / "fares.csv")
-    df = df.where(pd.notnull(df), None)  # replace NaN with None so JSON gets null not NaN
     records = df.to_dict(orient="records")
     out = {"meta": {"updated": date.today().isoformat()}, "cities": records}
     _write(SITE_DATA_DIR / "fares.json", out)
@@ -214,8 +213,29 @@ def export_insights() -> None:
     _write(SITE_DATA_DIR / "insights.json", out)
 
 
+def _clean_nan(obj):
+    """Recursively replace float NaN/inf with None so output is strict JSON.
+
+    Python's json module emits bare `NaN`/`Infinity` tokens by default, which
+    are valid Python but rejected by JavaScript's JSON.parse — blanking the
+    dashboard. Empty CSV cells become NaN floats, so this runs on every export.
+    """
+    if isinstance(obj, dict):
+        return {k: _clean_nan(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_clean_nan(v) for v in obj]
+    if isinstance(obj, float) and not math.isfinite(obj):
+        return None
+    return obj
+
+
 def _write(path: Path, obj: dict) -> None:
-    path.write_text(json.dumps(obj, indent=2, default=_j), encoding="utf-8")
+    # allow_nan=False guarantees we never emit a non-JS-parseable NaN token;
+    # _clean_nan converts them to null first so the dump can't raise.
+    path.write_text(
+        json.dumps(_clean_nan(obj), indent=2, default=_j, allow_nan=False),
+        encoding="utf-8",
+    )
     print(f"[export] wrote {path.name}")
 
 

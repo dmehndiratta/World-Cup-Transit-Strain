@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-06-12"
+    "updated": "2026-06-15"
   },
   "matches": [
     {
@@ -34,7 +34,7 @@
       "expected_attendance": 43449,
       "transit_demand_est": 31283,
       "strain_rating": 6.3,
-      "notes": NaN,
+      "notes": null,
       "teams": "Canada vs Bosnia & Herzegovina"
     },
     {
@@ -51,7 +51,7 @@
       "expected_attendance": 51775,
       "transit_demand_est": 41420,
       "strain_rating": 7.8,
-      "notes": NaN,
+      "notes": null,
       "teams": "Australia vs Turkey"
     },
     {
@@ -68,7 +68,7 @@
       "expected_attendance": 78375,
       "transit_demand_est": 35269,
       "strain_rating": 8.3,
-      "notes": NaN,
+      "notes": null,
       "teams": "Brazil vs Morocco"
     },
     {
@@ -85,7 +85,7 @@
       "expected_attendance": 67450,
       "transit_demand_est": 18886,
       "strain_rating": 6.5,
-      "notes": NaN,
+      "notes": null,
       "teams": "Spain vs Cabo Verde"
     },
     {
@@ -102,7 +102,7 @@
       "expected_attendance": 68400,
       "transit_demand_est": 25992,
       "strain_rating": 7.1,
-      "notes": NaN,
+      "notes": null,
       "teams": "Belgium vs Egypt"
     },
     {
@@ -119,7 +119,7 @@
       "expected_attendance": 78375,
       "transit_demand_est": 35269,
       "strain_rating": 8.2,
-      "notes": NaN,
+      "notes": null,
       "teams": "France vs Senegal"
     },
     {
@@ -136,7 +136,7 @@
       "expected_attendance": 83147,
       "transit_demand_est": 49888,
       "strain_rating": 7.0,
-      "notes": NaN,
+      "notes": null,
       "teams": "TBD vs TBD"
     },
     {
@@ -153,7 +153,7 @@
       "expected_attendance": 43449,
       "transit_demand_est": 31283,
       "strain_rating": 6.1,
-      "notes": NaN,
+      "notes": null,
       "teams": "TBD vs TBD"
     },
     {
@@ -170,7 +170,7 @@
       "expected_attendance": 67450,
       "transit_demand_est": 18886,
       "strain_rating": 6.4,
-      "notes": NaN,
+      "notes": null,
       "teams": "South Africa vs TBD"
     },
     {
@@ -187,7 +187,7 @@
       "expected_attendance": 51775,
       "transit_demand_est": 41420,
       "strain_rating": 7.6,
-      "notes": NaN,
+      "notes": null,
       "teams": "Canada vs Qatar"
     },
     {
@@ -204,7 +204,7 @@
       "expected_attendance": 68400,
       "transit_demand_est": 25992,
       "strain_rating": 7.2,
-      "notes": NaN,
+      "notes": null,
       "teams": "USA vs Australia"
     },
     {
@@ -221,7 +221,7 @@
       "expected_attendance": 43449,
       "transit_demand_est": 31283,
       "strain_rating": 6.2,
-      "notes": NaN,
+      "notes": null,
       "teams": "Germany vs Cote d'Ivoire"
     },
     {
@@ -238,7 +238,7 @@
       "expected_attendance": 51775,
       "transit_demand_est": 41420,
       "strain_rating": 7.7,
-      "notes": NaN,
+      "notes": null,
       "teams": "New Zealand vs Egypt"
     },
     {
@@ -255,7 +255,7 @@
       "expected_attendance": 67450,
       "transit_demand_est": 18886,
       "strain_rating": 6.6,
-      "notes": NaN,
+      "notes": null,
       "teams": "Spain vs Saudi Arabia"
     },
     {
@@ -272,7 +272,7 @@
       "expected_attendance": 78375,
       "transit_demand_est": 35269,
       "strain_rating": 8.4,
-      "notes": NaN,
+      "notes": null,
       "teams": "Norway vs Senegal"
     },
     {
@@ -289,7 +289,7 @@
       "expected_attendance": 43449,
       "transit_demand_est": 31283,
       "strain_rating": 6.0,
-      "notes": NaN,
+      "notes": null,
       "teams": "TBD vs TBD"
     },
     {
@@ -306,7 +306,7 @@
       "expected_attendance": 83147,
       "transit_demand_est": 49888,
       "strain_rating": 7.1,
-      "notes": NaN,
+      "notes": null,
       "teams": "Czechia vs Mexico"
     },
     {
@@ -323,7 +323,7 @@
       "expected_attendance": 51775,
       "transit_demand_est": 41420,
       "strain_rating": 7.5,
-      "notes": NaN,
+      "notes": null,
       "teams": "Canada vs Switzerland"
     },
     {
@@ -340,7 +340,7 @@
       "expected_attendance": 78375,
       "transit_demand_est": 35269,
       "strain_rating": 8.3,
-      "notes": NaN,
+      "notes": null,
       "teams": "Ecuador vs Germany"
     },
     {
@@ -357,7 +357,7 @@
       "expected_attendance": 68400,
       "transit_demand_est": 25992,
       "strain_rating": 7.0,
-      "notes": NaN,
+      "notes": null,
       "teams": "Qatar vs Bosnia & Herzegovina"
     },
     {
@@ -374,7 +374,7 @@
       "expected_attendance": 67450,
       "transit_demand_est": 18886,
       "strain_rating": 6.7,
-      "notes": NaN,
+      "notes": null,
       "teams": "Morocco vs Haiti"
     },
     {
@@ -391,7 +391,7 @@
       "expected_attendance": 78375,
       "transit_demand_est": 35269,
       "strain_rating": 8.5,
-      "notes": NaN,
+      "notes": null,
       "teams": "Panama vs England"
     },
     {
@@ -408,7 +408,7 @@
       "expected_attendance": 51775,
       "transit_demand_est": 41420,
       "strain_rating": 7.9,
-      "notes": NaN,
+      "notes": null,
       "teams": "New Zealand vs Belgium"
     },
     {
@@ -425,7 +425,7 @@
       "expected_attendance": 68400,
       "transit_demand_est": 25992,
       "strain_rating": 7.3,
-      "notes": NaN,
+      "notes": null,
       "teams": "Egypt vs Iran"
     },
     {
@@ -442,7 +442,7 @@
       "expected_attendance": 43449,
       "transit_demand_est": 31283,
       "strain_rating": 6.3,
-      "notes": NaN,
+      "notes": null,
       "teams": "TBD vs TBD"
     },
     {
@@ -459,7 +459,7 @@
       "expected_attendance": 67450,
       "transit_demand_est": 18886,
       "strain_rating": 6.8,
-      "notes": NaN,
+      "notes": null,
       "teams": "Uzbekistan vs TBD"
     },
     {
@@ -476,7 +476,7 @@
       "expected_attendance": 78375,
       "transit_demand_est": 35269,
       "strain_rating": 8.8,
-      "notes": NaN,
+      "notes": null,
       "teams": "TBD vs TBD"
     },
     {
@@ -493,7 +493,7 @@
       "expected_attendance": 83147,
       "transit_demand_est": 49888,
       "strain_rating": 7.5,
-      "notes": NaN,
+      "notes": null,
       "teams": "TBD vs TBD"
     },
     {
@@ -510,7 +510,7 @@
       "expected_attendance": 68400,
       "transit_demand_est": 25992,
       "strain_rating": 7.8,
-      "notes": NaN,
+      "notes": null,
       "teams": "TBD vs TBD"
     },
     {
@@ -527,7 +527,7 @@
       "expected_attendance": 67450,
       "transit_demand_est": 18886,
       "strain_rating": 7.2,
-      "notes": NaN,
+      "notes": null,
       "teams": "TBD vs TBD"
     },
     {
@@ -544,7 +544,7 @@
       "expected_attendance": 51775,
       "transit_demand_est": 41420,
       "strain_rating": 8.3,
-      "notes": NaN,
+      "notes": null,
       "teams": "TBD vs TBD"
     },
     {
@@ -561,7 +561,7 @@
       "expected_attendance": 43449,
       "transit_demand_est": 31283,
       "strain_rating": 6.9,
-      "notes": NaN,
+      "notes": null,
       "teams": "TBD vs TBD"
     },
     {
@@ -578,7 +578,7 @@
       "expected_attendance": 78375,
       "transit_demand_est": 35269,
       "strain_rating": 9.0,
-      "notes": NaN,
+      "notes": null,
       "teams": "TBD vs TBD"
     },
     {
@@ -595,7 +595,7 @@
       "expected_attendance": 83147,
       "transit_demand_est": 49888,
       "strain_rating": 7.8,
-      "notes": NaN,
+      "notes": null,
       "teams": "TBD vs TBD"
     },
     {
@@ -612,7 +612,7 @@
       "expected_attendance": 68400,
       "transit_demand_est": 25992,
       "strain_rating": 8.0,
-      "notes": NaN,
+      "notes": null,
       "teams": "TBD vs TBD"
     },
     {
@@ -629,7 +629,7 @@
       "expected_attendance": 51775,
       "transit_demand_est": 41420,
       "strain_rating": 8.6,
-      "notes": NaN,
+      "notes": null,
       "teams": "TBD vs TBD"
     },
     {
@@ -646,7 +646,7 @@
       "expected_attendance": 67450,
       "transit_demand_est": 18886,
       "strain_rating": 7.5,
-      "notes": NaN,
+      "notes": null,
       "teams": "TBD vs TBD"
     },
     {
@@ -663,7 +663,7 @@
       "expected_attendance": 67450,
       "transit_demand_est": 18886,
       "strain_rating": 9.0,
-      "notes": NaN,
+      "notes": null,
       "teams": "TBD vs TBD"
     },
     {
