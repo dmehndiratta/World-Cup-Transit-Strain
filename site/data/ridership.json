@@ -1,223 +1,223 @@
 {
   "meta": {
-    "updated": "2026-10-18"
+    "updated": "2026-11-22"
   },
   "cities": {
     "nyc": [
       {
         "week": "2026-01-05",
         "baseline": 3200000,
-        "actual": 3300788,
+        "actual": 3232545,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-12",
         "baseline": 3200000,
-        "actual": 3281555,
+        "actual": 3200072,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-19",
         "baseline": 3200000,
-        "actual": 3154151,
+        "actual": 3229948,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-26",
         "baseline": 3200000,
-        "actual": 3149774,
+        "actual": 3215701,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-02",
         "baseline": 3200000,
-        "actual": 3213419,
+        "actual": 3140617,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-09",
         "baseline": 3200000,
-        "actual": 3248479,
+        "actual": 3205627,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-16",
         "baseline": 3200000,
-        "actual": 3223462,
+        "actual": 3236299,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-23",
         "baseline": 3200000,
-        "actual": 3164380,
+        "actual": 3179274,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-02",
         "baseline": 3200000,
-        "actual": 3126239,
+        "actual": 3109757,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-09",
         "baseline": 3200000,
-        "actual": 3274721,
+        "actual": 3261432,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-16",
         "baseline": 3200000,
-        "actual": 3185130,
+        "actual": 3147831,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-23",
         "baseline": 3200000,
-        "actual": 3181630,
+        "actual": 3287405,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-30",
         "baseline": 3200000,
-        "actual": 3135364,
+        "actual": 3151983,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-06",
         "baseline": 3200000,
-        "actual": 3288845,
+        "actual": 3262171,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-13",
         "baseline": 3200000,
-        "actual": 3179336,
+        "actual": 3194947,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-20",
         "baseline": 3200000,
-        "actual": 3284179,
+        "actual": 3325741,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-27",
         "baseline": 3200000,
-        "actual": 3159060,
+        "actual": 3272152,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-04",
         "baseline": 3200000,
-        "actual": 3056563,
+        "actual": 3250976,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-11",
         "baseline": 3200000,
-        "actual": 3247004,
+        "actual": 3153530,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-18",
         "baseline": 3200000,
-        "actual": 3229604,
+        "actual": 3301635,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-25",
         "baseline": 3200000,
-        "actual": 3136802,
+        "actual": 3197852,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-06-01",
         "baseline": 3200000,
-        "actual": 3259572,
+        "actual": 3142220,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-06-08",
         "baseline": 3200000,
-        "actual": 3672828,
+        "actual": 3707143,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-15",
         "baseline": 3200000,
-        "actual": 3743299,
+        "actual": 3484288,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-22",
         "baseline": 3200000,
-        "actual": 3665227,
+        "actual": 3651735,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-29",
         "baseline": 3200000,
-        "actual": 3596856,
+        "actual": 3729649,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-06",
         "baseline": 3200000,
-        "actual": 3591686,
+        "actual": 3654507,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-13",
         "baseline": 3200000,
-        "actual": 3687880,
+        "actual": 3708043,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-20",
         "baseline": 3200000,
-        "actual": 3596180,
+        "actual": 3617559,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-27",
         "baseline": 3200000,
-        "actual": 3210919,
+        "actual": 3301779,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-08-03",
         "baseline": 3200000,
-        "actual": 3207900,
+        "actual": 3120181,
         "projected": null,
         "is_wc_week": false
       }
@@ -226,217 +226,217 @@
       {
         "week": "2026-01-05",
         "baseline": 4100000,
-        "actual": 4068760,
+        "actual": 4118546,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-12",
         "baseline": 4100000,
-        "actual": 3985360,
+        "actual": 4107203,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-19",
         "baseline": 4100000,
-        "actual": 4081786,
+        "actual": 4119027,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-26",
         "baseline": 4100000,
-        "actual": 4111470,
+        "actual": 4141758,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-02",
         "baseline": 4100000,
-        "actual": 4124676,
+        "actual": 4169094,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-09",
         "baseline": 4100000,
-        "actual": 4173701,
+        "actual": 4219742,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-16",
         "baseline": 4100000,
-        "actual": 4108293,
+        "actual": 4083781,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-23",
         "baseline": 4100000,
-        "actual": 4155791,
+        "actual": 3978408,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-02",
         "baseline": 4100000,
-        "actual": 4174648,
+        "actual": 4071740,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-09",
         "baseline": 4100000,
-        "actual": 3903696,
+        "actual": 4113552,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-16",
         "baseline": 4100000,
-        "actual": 4129545,
+        "actual": 4087770,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-23",
         "baseline": 4100000,
-        "actual": 4173387,
+        "actual": 3931167,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-30",
         "baseline": 4100000,
-        "actual": 3996662,
+        "actual": 4078958,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-06",
         "baseline": 4100000,
-        "actual": 4068699,
+        "actual": 4091851,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-13",
         "baseline": 4100000,
-        "actual": 4253040,
+        "actual": 4068536,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-20",
         "baseline": 4100000,
-        "actual": 4113105,
+        "actual": 4220299,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-27",
         "baseline": 4100000,
-        "actual": 4142727,
+        "actual": 4068738,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-04",
         "baseline": 4100000,
-        "actual": 4169467,
+        "actual": 4129814,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-11",
         "baseline": 4100000,
-        "actual": 4270669,
+        "actual": 4111359,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-18",
         "baseline": 4100000,
-        "actual": 4145394,
+        "actual": 4017984,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-25",
         "baseline": 4100000,
-        "actual": 4032602,
+        "actual": 4059310,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-06-01",
         "baseline": 4100000,
-        "actual": 4147972,
+        "actual": 4170703,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-06-08",
         "baseline": 4100000,
-        "actual": 4590017,
+        "actual": 4646677,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-15",
         "baseline": 4100000,
-        "actual": 4557261,
+        "actual": 4494926,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-22",
         "baseline": 4100000,
-        "actual": 4720389,
+        "actual": 4575166,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-29",
         "baseline": 4100000,
-        "actual": 4554820,
+        "actual": 4568845,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-06",
         "baseline": 4100000,
-        "actual": 4571488,
+        "actual": 4578676,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-13",
         "baseline": 4100000,
-        "actual": 4724684,
+        "actual": 4603048,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-20",
         "baseline": 4100000,
-        "actual": 4550604,
+        "actual": 4671727,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-27",
         "baseline": 4100000,
-        "actual": 4075617,
+        "actual": 4143802,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-08-03",
         "baseline": 4100000,
-        "actual": 4150821,
+        "actual": 4122419,
         "projected": null,
         "is_wc_week": false
       }
@@ -445,217 +445,217 @@
       {
         "week": "2026-01-05",
         "baseline": 2800000,
-        "actual": 2803074,
+        "actual": 2863993,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-12",
         "baseline": 2800000,
-        "actual": 2769774,
+        "actual": 2718049,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-19",
         "baseline": 2800000,
-        "actual": 2811100,
+        "actual": 2773134,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-26",
         "baseline": 2800000,
-        "actual": 2699521,
+        "actual": 2837257,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-02",
         "baseline": 2800000,
-        "actual": 2796435,
+        "actual": 2784520,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-09",
         "baseline": 2800000,
-        "actual": 2851047,
+        "actual": 2738085,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-16",
         "baseline": 2800000,
-        "actual": 2700803,
+        "actual": 2734020,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-23",
         "baseline": 2800000,
-        "actual": 2672677,
+        "actual": 2774241,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-02",
         "baseline": 2800000,
-        "actual": 2758178,
+        "actual": 2862525,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-09",
         "baseline": 2800000,
-        "actual": 2758464,
+        "actual": 2778555,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-16",
         "baseline": 2800000,
-        "actual": 2775062,
+        "actual": 2806256,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-23",
         "baseline": 2800000,
-        "actual": 2842977,
+        "actual": 2836371,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-30",
         "baseline": 2800000,
-        "actual": 2867398,
+        "actual": 2744253,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-06",
         "baseline": 2800000,
-        "actual": 2805230,
+        "actual": 2858052,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-13",
         "baseline": 2800000,
-        "actual": 2769062,
+        "actual": 2845172,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-20",
         "baseline": 2800000,
-        "actual": 2846084,
+        "actual": 2818788,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-27",
         "baseline": 2800000,
-        "actual": 2914512,
+        "actual": 2675474,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-04",
         "baseline": 2800000,
-        "actual": 2728837,
+        "actual": 2841103,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-11",
         "baseline": 2800000,
-        "actual": 2778548,
+        "actual": 2745225,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-18",
         "baseline": 2800000,
-        "actual": 2696687,
+        "actual": 2862603,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-25",
         "baseline": 2800000,
-        "actual": 2824036,
+        "actual": 2781535,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-06-01",
         "baseline": 2800000,
-        "actual": 2789286,
+        "actual": 2781274,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-06-08",
         "baseline": 2800000,
-        "actual": 2997279,
+        "actual": 3007943,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-15",
         "baseline": 2800000,
-        "actual": 3119250,
+        "actual": 3116573,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-22",
         "baseline": 2800000,
-        "actual": 3049995,
+        "actual": 3003088,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-29",
         "baseline": 2800000,
-        "actual": 3157538,
+        "actual": 3179264,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-06",
         "baseline": 2800000,
-        "actual": 3109173,
+        "actual": 3007554,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-13",
         "baseline": 2800000,
-        "actual": 3093287,
+        "actual": 3098566,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-20",
         "baseline": 2800000,
-        "actual": 3172931,
+        "actual": 3084254,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-27",
         "baseline": 2800000,
-        "actual": 2806727,
+        "actual": 2860361,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-08-03",
         "baseline": 2800000,
-        "actual": 2747722,
+        "actual": 2820216,
         "projected": null,
         "is_wc_week": false
       }
@@ -664,217 +664,217 @@
       {
         "week": "2026-01-05",
         "baseline": 1050000,
-        "actual": 1050097,
+        "actual": 1044179,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-12",
         "baseline": 1050000,
-        "actual": 1047229,
+        "actual": 1046744,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-19",
         "baseline": 1050000,
-        "actual": 1044938,
+        "actual": 1029642,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-26",
         "baseline": 1050000,
-        "actual": 1040379,
+        "actual": 1042436,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-02",
         "baseline": 1050000,
-        "actual": 1039549,
+        "actual": 1044898,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-09",
         "baseline": 1050000,
-        "actual": 1069033,
+        "actual": 1063120,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-16",
         "baseline": 1050000,
-        "actual": 1073601,
+        "actual": 1038035,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-23",
         "baseline": 1050000,
-        "actual": 1055735,
+        "actual": 1075936,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-02",
         "baseline": 1050000,
-        "actual": 1008375,
+        "actual": 1055078,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-09",
         "baseline": 1050000,
-        "actual": 1060223,
+        "actual": 1032140,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-16",
         "baseline": 1050000,
-        "actual": 1072725,
+        "actual": 1013347,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-23",
         "baseline": 1050000,
-        "actual": 1066723,
+        "actual": 1015439,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-30",
         "baseline": 1050000,
-        "actual": 1051487,
+        "actual": 1063663,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-06",
         "baseline": 1050000,
-        "actual": 1046628,
+        "actual": 1061743,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-13",
         "baseline": 1050000,
-        "actual": 1058869,
+        "actual": 1028700,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-20",
         "baseline": 1050000,
-        "actual": 1042005,
+        "actual": 1042614,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-27",
         "baseline": 1050000,
-        "actual": 1059163,
+        "actual": 1066652,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-04",
         "baseline": 1050000,
-        "actual": 1045860,
+        "actual": 1045123,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-11",
         "baseline": 1050000,
-        "actual": 1049142,
+        "actual": 1056492,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-18",
         "baseline": 1050000,
-        "actual": 1069798,
+        "actual": 1035140,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-25",
         "baseline": 1050000,
-        "actual": 1076255,
+        "actual": 1092942,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-06-01",
         "baseline": 1050000,
-        "actual": 1085054,
+        "actual": 1106386,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-06-08",
         "baseline": 1050000,
-        "actual": 1232964,
+        "actual": 1210202,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-15",
         "baseline": 1050000,
-        "actual": 1175047,
+        "actual": 1237520,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-22",
         "baseline": 1050000,
-        "actual": 1226063,
+        "actual": 1243231,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-29",
         "baseline": 1050000,
-        "actual": 1254221,
+        "actual": 1222129,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-06",
         "baseline": 1050000,
-        "actual": 1225406,
+        "actual": 1211040,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-13",
         "baseline": 1050000,
-        "actual": 1162056,
+        "actual": 1217825,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-20",
         "baseline": 1050000,
-        "actual": 1220020,
+        "actual": 1215261,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-27",
         "baseline": 1050000,
-        "actual": 1042993,
+        "actual": 1016194,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-08-03",
         "baseline": 1050000,
-        "actual": 1029673,
+        "actual": 1084237,
         "projected": null,
         "is_wc_week": false
       }
@@ -883,217 +883,217 @@
       {
         "week": "2026-01-05",
         "baseline": 850000,
-        "actual": 841901,
+        "actual": 839905,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-12",
         "baseline": 850000,
-        "actual": 852814,
+        "actual": 866432,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-19",
         "baseline": 850000,
-        "actual": 877002,
+        "actual": 874310,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-26",
         "baseline": 850000,
-        "actual": 856623,
+        "actual": 851509,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-02",
         "baseline": 850000,
-        "actual": 824060,
+        "actual": 839077,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-09",
         "baseline": 850000,
-        "actual": 861173,
+        "actual": 860181,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-16",
         "baseline": 850000,
-        "actual": 803521,
+        "actual": 859549,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-23",
         "baseline": 850000,
-        "actual": 833694,
+        "actual": 845709,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-02",
         "baseline": 850000,
-        "actual": 856622,
+        "actual": 856035,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-09",
         "baseline": 850000,
-        "actual": 859338,
+        "actual": 831851,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-16",
         "baseline": 850000,
-        "actual": 866824,
+        "actual": 855516,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-23",
         "baseline": 850000,
-        "actual": 828363,
+        "actual": 835838,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-30",
         "baseline": 850000,
-        "actual": 864181,
+        "actual": 898482,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-06",
         "baseline": 850000,
-        "actual": 862778,
+        "actual": 843879,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-13",
         "baseline": 850000,
-        "actual": 873480,
+        "actual": 805029,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-20",
         "baseline": 850000,
-        "actual": 814476,
+        "actual": 862557,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-27",
         "baseline": 850000,
-        "actual": 877858,
+        "actual": 851793,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-04",
         "baseline": 850000,
-        "actual": 859946,
+        "actual": 839321,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-11",
         "baseline": 850000,
-        "actual": 822684,
+        "actual": 828276,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-18",
         "baseline": 850000,
-        "actual": 852909,
+        "actual": 844738,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-25",
         "baseline": 850000,
-        "actual": 846563,
+        "actual": 827409,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-06-01",
         "baseline": 850000,
-        "actual": 834204,
+        "actual": 874880,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-06-08",
         "baseline": 850000,
-        "actual": 893410,
+        "actual": 916421,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-15",
         "baseline": 850000,
-        "actual": 901692,
+        "actual": 905422,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-22",
         "baseline": 850000,
-        "actual": 948464,
+        "actual": 946931,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-29",
         "baseline": 850000,
-        "actual": 938419,
+        "actual": 928820,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-06",
         "baseline": 850000,
-        "actual": 923520,
+        "actual": 899691,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-13",
         "baseline": 850000,
-        "actual": 896841,
+        "actual": 932137,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-20",
         "baseline": 850000,
-        "actual": 927859,
+        "actual": 927302,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-27",
         "baseline": 850000,
-        "actual": 832571,
+        "actual": 845075,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-08-03",
         "baseline": 850000,
-        "actual": 857610,
+        "actual": 841044,
         "projected": null,
         "is_wc_week": false
       }
@@ -1102,217 +1102,217 @@
       {
         "week": "2026-01-05",
         "baseline": 620000,
-        "actual": 609378,
+        "actual": 620902,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-12",
         "baseline": 620000,
-        "actual": 611599,
+        "actual": 631552,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-19",
         "baseline": 620000,
-        "actual": 626347,
+        "actual": 627990,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-01-26",
         "baseline": 620000,
-        "actual": 629557,
+        "actual": 617567,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-02",
         "baseline": 620000,
-        "actual": 633343,
+        "actual": 623707,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-09",
         "baseline": 620000,
-        "actual": 636347,
+        "actual": 604978,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-16",
         "baseline": 620000,
-        "actual": 634727,
+        "actual": 632747,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-02-23",
         "baseline": 620000,
-        "actual": 633908,
+        "actual": 618146,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-02",
         "baseline": 620000,
-        "actual": 623229,
+        "actual": 609972,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-09",
         "baseline": 620000,
-        "actual": 632487,
+        "actual": 622370,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-16",
         "baseline": 620000,
-        "actual": 603275,
+        "actual": 612324,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-23",
         "baseline": 620000,
-        "actual": 644226,
+        "actual": 631450,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-03-30",
         "baseline": 620000,
-        "actual": 631917,
+        "actual": 589115,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-06",
         "baseline": 620000,
-        "actual": 608568,
+        "actual": 636746,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-13",
         "baseline": 620000,
-        "actual": 633174,
+        "actual": 592057,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-20",
         "baseline": 620000,
-        "actual": 615318,
+        "actual": 638499,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-04-27",
         "baseline": 620000,
-        "actual": 594073,
+        "actual": 617043,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-04",
         "baseline": 620000,
-        "actual": 611682,
+        "actual": 614627,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-11",
         "baseline": 620000,
-        "actual": 639542,
+        "actual": 614208,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-18",
         "baseline": 620000,
-        "actual": 626555,
+        "actual": 628053,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-05-25",
         "baseline": 620000,
-        "actual": 630675,
+        "actual": 629246,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-06-01",
         "baseline": 620000,
-        "actual": 626114,
+        "actual": 623106,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-06-08",
         "baseline": 620000,
-        "actual": 704877,
+        "actual": 674791,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-15",
         "baseline": 620000,
-        "actual": 692207,
+        "actual": 693743,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-22",
         "baseline": 620000,
-        "actual": 674488,
+        "actual": 689960,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-06-29",
         "baseline": 620000,
-        "actual": 686124,
+        "actual": 697237,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-06",
         "baseline": 620000,
-        "actual": 681196,
+        "actual": 706845,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-13",
         "baseline": 620000,
-        "actual": 682524,
+        "actual": 679445,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-20",
         "baseline": 620000,
-        "actual": 680752,
+        "actual": 679472,
         "projected": null,
         "is_wc_week": true
       },
       {
         "week": "2026-07-27",
         "baseline": 620000,
-        "actual": 618817,
+        "actual": 599620,
         "projected": null,
         "is_wc_week": false
       },
       {
         "week": "2026-08-03",
         "baseline": 620000,
-        "actual": 615099,
+        "actual": 609195,
         "projected": null,
         "is_wc_week": false
       }
